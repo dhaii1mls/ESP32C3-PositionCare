@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#006b35">
+<meta name="description" content="ATHAR أثر - From healthcare challenges to meaningful impact">
+<title>ATHAR | أثر</title>
+<style>
+/* =========================================================
+   ATHAR أثر - الألوان (غيّرها من هنا) — أخضر وذهبي من هوية المشروع
+   ========================================================= */
+:root{
+  --bg:#f6f5f0; --card:#ffffff; --line:#e3eaee; --soft:#f6f9fb; --soft-2:#eef4f6;
+  --ink:#10331f; --text:#2d4537; --muted:#6c7f73; --faint:#a3b2a8;
+  --side:#00532a; --side-2:#0a6838; --side-active:#16824b; --side-ink:#dcece1;
+  --teal:#006b35; --teal-2:#1f9256; --teal-3:#c9a04c;
+  --gold:#c9a04c; --gold-ink:#9c7c2f; --brand:#006b35;
+  --green:#1f9d6b; --green-bg:#e3f5ed; --green-ink:#11704b;
+  --orange:#f5a524; --orange-bg:#fdf1db; --orange-ink:#9a6200;
+  --red:#e5484d;   --red-bg:#fde7e8;   --red-ink:#b0242a;
+  --gray:#a3b3ba;  --gray-bg:#eef2f4;
+  --blue-bg:#e6f1fb; --blue-ink:#1d5d8f;
+  --body-1:#eef7f0; --body-2:#d6ecdc; --body-line:#7dbf93;
+  --shadow:0 1px 2px rgba(0,53,26,.04),0 6px 20px rgba(0,53,26,.06);
+  --shadow-lg:0 18px 50px rgba(0,53,26,.18);
+  --r:18px; --r-sm:12px; --side-w:236px;
+  --font:"Segoe UI","SF Pro Text","Noto Sans Arabic","Geeza Pro",Tahoma,system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{color:var(--text);min-height:100vh;font-family:var(--font);font-size:14px;line-height:1.45;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+  /* خلفية النظام: تدرّجات ناعمة + شبكة نقاط + علامات + خفيفة جداً */
+  background-color:#f4f3ec;
+  background-image:
+    radial-gradient(900px 540px at 100% -8%,rgba(0,107,53,.17),transparent 62%),
+    radial-gradient(760px 520px at -8% 106%,rgba(201,160,76,.17),transparent 60%),
+    radial-gradient(700px 420px at 55% 38%,rgba(255,255,255,.75),transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='144' height='144'%3E%3Cpath d='M72 66v12M66 72h12' stroke='%23006b35' stroke-opacity='.075' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 1px 1px,rgba(0,53,26,.055) 1px,transparent 1.4px);
+  background-size:auto,auto,auto,144px 144px,24px 24px;
+  background-repeat:no-repeat,no-repeat,no-repeat,repeat,repeat;
+  background-attachment:fixed}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--teal-3);outline-offset:2px;border-radius:8px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;inset-inline-start:12px;top:-60px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:10px;z-index:100}
+.skip:focus{top:12px}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+[hidden]{display:none!important}
+.num{font-variant-numeric:tabular-nums}
+.ltr{direction:ltr;unicode-bidi:isolate}
+
+/* ---------- Sidebar ---------- */
+.side{position:fixed;inset-block:0;inset-inline-start:0;width:var(--side-w);color:var(--side-ink);
+  background:linear-gradient(180deg,#007a3d 0%,#00602f 45%,#004a24 100%);
+  display:flex;flex-direction:column;padding:22px 14px 18px;z-index:30;overflow:hidden}
+.side:before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(420px 260px at 0% 100%,rgba(201,160,76,.16),transparent 70%),
+    radial-gradient(circle at 1px 1px,rgba(255,255,255,.06) 1px,transparent 1.4px) 0 0/18px 18px;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 55%);mask-image:linear-gradient(180deg,transparent 0%,#000 55%)}
+.side>*{position:relative}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:19px;letter-spacing:.2px;padding:2px 10px 28px}
+.logo .brandmark{width:44px;height:44px;flex:none;--palm:#fff;--gold-c:var(--gold)}
+.bname{display:flex;align-items:baseline;gap:9px;line-height:1}
+.bname b{font-size:21px;font-weight:800;letter-spacing:3px;color:#fff}
+.bname em{font-style:normal;font-size:22px;font-weight:800;color:var(--gold)}
+.brand-tag{font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.55);line-height:1.5;padding:0 6px}
+.mbrand{display:none;align-items:center;gap:6px;color:var(--brand);font-weight:800;font-size:18px}
+.mbrand svg{width:30px;height:30px;--palm:var(--brand);--gold-c:var(--gold)}
+.nav{display:flex;flex-direction:column;gap:6px}
+.nav button{display:flex;align-items:center;gap:12px;background:none;border:0;color:var(--side-ink);padding:12px 14px;border-radius:12px;
+  font-size:14.5px;font-weight:600;text-align:start;width:100%;transition:background .2s,color .2s}
+.nav button:hover{background:var(--side-2)}
+.nav button.on{background:var(--side-active);color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.nav .cnt{margin-inline-start:auto;background:var(--red);color:#fff;font-size:11px;font-weight:700;min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;padding:0 6px}
+.side-foot{margin-top:auto;display:flex;flex-direction:column;gap:12px}
+.dev{background:var(--side-2);border-radius:14px;padding:12px;font-size:12px;display:flex;flex-direction:column;gap:4px}
+.dev b{color:#fff;font-size:12.5px;display:flex;align-items:center;gap:7px}
+.dev span{opacity:.75}
+.seg{display:flex;background:var(--side-2);border-radius:12px;padding:4px}
+.seg button{flex:1;border:0;background:none;color:var(--side-ink);padding:8px;border-radius:9px;font-weight:700;font-size:13px}
+.seg button.on{background:#fff;color:var(--side)}
+.led{width:9px;height:9px;border-radius:50%;background:var(--gray);flex:none}
+.led.ok{background:#3ddc97;box-shadow:0 0 0 3px rgba(61,220,151,.25)}
+.led.warn{background:#fbbf24;box-shadow:0 0 0 3px rgba(251,191,36,.25)}
+.led.bad{background:#f87171;box-shadow:0 0 0 3px rgba(248,113,113,.25)}
+.led.pulse{animation:ledp 1.6s ease-in-out infinite}
+@keyframes ledp{50%{opacity:.45}}
+
+/* ---------- Main ---------- */
+.main{margin-inline-start:var(--side-w);padding:22px 26px 32px;min-width:0}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.topbar h1{margin:0;font-size:23px;color:var(--ink);letter-spacing:-.2px}
+.tb-act{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.chip{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);
+  font-size:12.5px;font-weight:600;color:var(--text);white-space:nowrap}
+.ibtn{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;color:var(--ink);transition:background .2s}
+.ibtn:hover{background:var(--soft-2)}
+.ibtn.off{color:var(--faint)}
+.ibtn .sl{display:none}.ibtn.off .sl{display:inline}
+.m-only{display:none}
+
+.banner{display:flex;align-items:center;gap:12px;border-radius:14px;padding:12px 16px;margin-bottom:16px;font-size:13.5px;font-weight:600;border:1px solid transparent}
+.banner .i{width:22px;height:22px}
+.banner.info{background:var(--blue-bg);color:var(--blue-ink);border-color:#cfe2f3}
+.banner.warn{background:var(--orange-bg);color:var(--orange-ink);border-color:#f7dfb0}
+.banner.bad{background:var(--red-bg);color:var(--red-ink);border-color:#f6c8ca}
+.banner button{margin-inline-start:auto;border:0;background:rgba(255,255,255,.75);border-radius:10px;padding:7px 12px;font-weight:700;font-size:12.5px;color:inherit}
+
+.grid{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:18px;align-items:start}
+.card{background:linear-gradient(180deg,#fff,#fcfefe);border:1px solid rgba(214,226,231,.95);border-radius:var(--r);
+  box-shadow:0 1px 2px rgba(0,53,26,.04),0 12px 32px -14px rgba(0,53,26,.18);padding:20px;min-width:0}
+.hi{width:32px;height:32px;border-radius:10px;background:var(--green-bg);color:var(--teal);display:grid;place-items:center;flex:none}
+.hi .i{width:17px;height:17px}
+.hi.red{background:var(--red-bg);color:var(--red)}
+.card-h{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.card-h h2{margin:0;font-size:16.5px;color:var(--ink);letter-spacing:-.1px}
+.card-h .r{margin-inline-start:auto}
+.card-h .bell{color:var(--red)}
+.link{background:none;border:0;color:var(--teal);font-weight:700;font-size:12.5px;padding:4px 2px}
+.fade{animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ---------- Pills ---------- */
+.pill{display:inline-flex;align-items:center;gap:7px;border-radius:10px;padding:6px 12px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.pill i{width:10px;height:10px;border-radius:50%;flex:none}
+.p-ok{background:var(--green-bg);color:var(--green-ink)} .p-ok i{background:var(--green)}
+.p-due{background:var(--orange-bg);color:var(--orange-ink)} .p-due i{background:var(--orange)}
+.p-over{background:var(--red-bg);color:var(--red-ink)} .p-over i{background:var(--red)}
+.p-empty{background:var(--gray-bg);color:var(--muted)} .p-empty i{background:var(--gray)}
+.p-over i{animation:ledp 1.2s infinite}
+
+/* ---------- Patient status ---------- */
+.card.pcard{padding:0;overflow:hidden}
+.phead{display:flex;align-items:center;gap:14px;padding:18px 20px;color:#fff;background:linear-gradient(135deg,#004a24 0%,#006b35 55%,#1f8a4f 100%)}
+.avatar{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;flex:none;font-weight:800;font-size:18px;
+  background:linear-gradient(135deg,#effaf7,#c9ebe4);color:#006b35;box-shadow:0 0 0 3px #006b35,0 0 0 6px var(--rc,rgba(255,255,255,.35));transition:box-shadow .4s}
+.avatar .i{width:24px;height:24px}
+.rk-ok{--rc:#3ddc97}.rk-due{--rc:#fbbf24}.rk-over{--rc:#ff6b70;animation:ringp 1.4s infinite}.rk-empty,.rk-wait{--rc:rgba(255,255,255,.35)}
+@keyframes ringp{50%{box-shadow:0 0 0 3px #006b35,0 0 0 9px rgba(255,107,112,.55)}}
+.who{min-width:0;flex:1}
+.who b{display:block;font-size:19px;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who span{display:block;font-size:13px;color:rgba(255,255,255,.82);margin-top:2px}
+.phead .sk{background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,.28),rgba(255,255,255,.12));background-size:200% 100%;color:transparent!important;border-radius:8px}
+.pbody{padding:18px 20px 20px;display:flex;flex-direction:column;gap:16px}
+.bigpill{display:flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:13px 16px;font-size:16px;font-weight:800;text-align:center}
+.bigpill i{width:12px;height:12px;border-radius:50%;flex:none}
+.next{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--soft)}
+.next span{width:100%;font-size:12px;font-weight:700;color:var(--muted)}
+.next b{font-size:20px;color:var(--ink);letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+.next small{font-size:12.5px;font-weight:600;color:var(--muted)}
+.next b.c-over{color:var(--red-ink)} .next b.c-due{color:var(--orange-ink)}
+.prog .lbl{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13px;font-weight:700;color:var(--text);margin-bottom:7px}
+.prog .lbl em{font-style:normal;color:var(--muted);font-weight:600}
+.track{height:9px;border-radius:99px;background:var(--gray-bg);overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:99px;background:var(--teal-2);transition:width .9s ease,background .4s}
+.state{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;margin-top:6px}
+.state:empty{display:none}
+.state i{width:7px;height:7px;border-radius:50%;background:currentColor}
+.c-ok{color:var(--green-ink)} .c-due{color:var(--orange-ink)} .c-over{color:var(--red-ink)} .c-muted{color:var(--muted)} .c-teal{color:var(--teal)}
+
+/* ---------- Map ---------- */
+.figwrap{position:relative;display:flex;justify-content:center;border-radius:16px}
+#body{width:100%;max-width:400px;max-height:64vh;height:auto;overflow:visible}
+.zone{cursor:pointer}
+.zone .blob{transition:r .6s ease,opacity .6s}
+.zone .na{fill:#fff;fill-opacity:.55;stroke:var(--body-line);stroke-width:1.3;stroke-dasharray:2.5 2.5}
+.zone .hit{fill:transparent}
+.zone .ring{fill:none;stroke:transparent;stroke-width:2}
+.zone.sel .ring{stroke:var(--ink)}
+.zone:focus{outline:none}.zone:focus-visible .ring{stroke:var(--teal-2);stroke-width:2.5}
+@keyframes throb{50%{opacity:.72}}
+.tip{position:absolute;background:var(--ink);color:#fff;font-size:12px;font-weight:600;padding:7px 11px;border-radius:10px;pointer-events:none;white-space:nowrap;transform:translate(-50%,-135%);box-shadow:var(--shadow-lg);z-index:5}
+.mapbox{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
+.figwrap{background:radial-gradient(62% 55% at 50% 46%,rgba(0,107,53,.12),transparent 72%);padding:8px 0 4px}
+.mapbox>*{min-width:0}
+.sens h3{font-size:13px;color:var(--muted);margin:0 0 10px;font-weight:700}
+.sens ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.sens li{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:13.5px}
+.sens li .nm{flex:1;min-width:0;font-weight:700;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sens li b{font-size:14.5px;font-weight:800}
+.lv0{color:var(--muted)}.lv1{color:var(--green-ink)}.lv2{color:var(--orange-ink)}.lv3{color:var(--red-ink)}
+.sens li.none{justify-content:center;color:var(--muted);font-weight:600;border-style:dashed}
+.dot{width:12px;height:12px;border-radius:50%;flex:none;display:inline-block}
+.d3{background:var(--red)} .d2{background:var(--orange)} .d1{background:var(--green)} .d0{background:var(--gray)}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;font-weight:700;color:var(--muted)}
+.legend>span{display:inline-flex;align-items:center;gap:7px}
+
+.clockbox{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);text-align:center}
+.clockbox b{font-size:26px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.clockbox span{font-size:13px;font-weight:600;color:var(--muted)}
+
+/* ---------- الضغط الآن (بطاقة المريض) ---------- */
+.nowp{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.nowp>span{font-size:12.5px;font-weight:700;color:var(--muted)}
+.nowp b{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;margin-inline-start:auto;transition:color .3s}
+.nowp small{font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:99px;background:var(--gray-bg);color:var(--muted)}
+.nowp small.lv1{background:var(--green-bg);color:var(--green-ink)}
+.nowp small.lv2{background:var(--orange-bg);color:var(--orange-ink)}
+.nowp small.lv3{background:var(--red-bg);color:var(--red-ink)}
+.nowp .meter{flex-basis:100%;height:8px;border-radius:99px;background:var(--gray-bg);overflow:hidden}
+.nowp .meter i{display:block;height:100%;width:0;border-radius:99px;transition:width .5s,background .3s}
+.nowp{flex-wrap:wrap}
+/* ---------- تنبيه الحركة (أحمر) ---------- */
+.figwrap.moving{box-shadow:inset 0 0 0 3px var(--green);background:radial-gradient(62% 55% at 50% 46%,rgba(18,183,106,.20),transparent 72%)!important;animation:mglow 1.4s ease-in-out infinite}
+.figwrap.moving #body{filter:drop-shadow(0 0 12px rgba(18,183,106,.75))}
+.figwrap .mvtag{position:absolute;top:10px;inset-inline-start:10px;z-index:4;background:var(--green);color:#fff;font-weight:800;font-size:13px;padding:6px 12px;border-radius:99px;box-shadow:0 6px 18px rgba(18,183,106,.35)}
+@keyframes mglow{50%{box-shadow:inset 0 0 0 3px rgba(18,183,106,.3)}}
+@media (prefers-reduced-motion:reduce){.figwrap.moving,.pchip.st-over{animation:none}}
+/* ---------- قائمة المرضى (الوضع التجريبي) ---------- */
+.pstrip{margin-bottom:18px;min-width:0}
+.ps-h{display:flex;align-items:center;gap:10px;margin:0 2px 10px;min-width:0}
+.ps-h h2{margin:0;font-size:15.5px;font-weight:800;color:var(--ink);white-space:nowrap}
+.ps-h .cnt{flex:none;background:var(--brand);color:#fff;border-radius:99px;font-size:11.5px;font-weight:800;padding:2px 9px;line-height:1.5}
+.ps-h small{margin-inline-start:auto;min-width:0;color:var(--muted);font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ps-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.pchip{--c:var(--gray);--cb:var(--gray-bg);--ci:var(--muted);
+  position:relative;min-width:0;overflow:hidden;display:flex;flex-direction:column;gap:9px;text-align:start;cursor:pointer;font:inherit;color:var(--text);
+  background:#fff;border:1px solid rgba(214,226,231,.95);border-radius:16px;padding:13px 14px 12px;padding-inline-start:17px;
+  box-shadow:0 2px 10px rgba(0,53,26,.05);transition:box-shadow .2s,transform .2s,border-color .2s}
+.pchip::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:4px;background:var(--c)}
+.pchip:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,53,26,.10)}
+.pchip:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.pchip.on{border-color:var(--brand);background:linear-gradient(180deg,#fff,#f1f8f3);box-shadow:0 0 0 1.5px var(--brand),0 10px 22px rgba(0,53,26,.12)}
+.pchip.st-ok,.pchip.st-motion{--c:var(--green);--cb:var(--green-bg);--ci:var(--green-ink)}
+.pchip.st-due{--c:var(--orange);--cb:var(--orange-bg);--ci:var(--orange-ink)}
+.pchip.st-over{--c:var(--red);--cb:var(--red-bg);--ci:var(--red-ink);animation:chipglow 1.8s ease-in-out infinite}
+.pc-top{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
+.pc-room{display:inline-flex;align-items:baseline;gap:4px;white-space:nowrap;flex:none;font-weight:800;font-size:15px;color:var(--gold-ink)}
+.pc-room small{font-size:11px;font-weight:700;color:var(--muted)}
+.pc-st{display:inline-flex;align-items:center;gap:5px;min-width:0;background:var(--cb);color:var(--ci);border-radius:99px;padding:3px 9px;font-size:11.5px;font-weight:800;white-space:nowrap}
+.pc-st i{width:7px;height:7px;border-radius:50%;background:var(--c);flex:none}
+.pc-st span{overflow:hidden;text-overflow:ellipsis}
+.pc-name{display:block;font-size:14.5px;font-weight:800;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-top:1px dashed #dfe9e2;padding-top:9px}
+.pc-stats>span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pc-stats small{font-size:10.5px;font-weight:700;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-stats b{font-size:15px;font-weight:800;color:var(--ink);line-height:1.2}
+.pc-stats b.lv1{color:var(--green-ink)} .pc-stats b.lv2{color:var(--orange-ink)} .pc-stats b.lv3{color:var(--red-ink)}
+@keyframes chipglow{50%{box-shadow:0 0 0 3px rgba(229,72,77,.22),0 2px 10px rgba(0,53,26,.05)}}
+@media (max-width:1180px){
+  .ps-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding:3px 3px 10px;margin:-3px -3px 0;scrollbar-width:thin}
+  .pchip{flex:0 0 200px;scroll-snap-align:start}
+}
+@media (max-width:640px){
+  .pstrip{margin-bottom:14px}
+  .ps-h small{display:none}
+  .ps-row{gap:10px;scrollbar-width:none}
+  .ps-row::-webkit-scrollbar{display:none}
+  .pchip{flex-basis:calc(50% - 5px);min-width:186px;padding:11px 12px 10px;padding-inline-start:15px;gap:7px;border-radius:14px}
+  .pchip:hover{transform:none}
+  .pc-room{font-size:14px}
+  .pc-name{font-size:13.5px}
+  .pc-stats b{font-size:14px}
+}
+/* ---------- إشعار تغيير وضعية ناجح ---------- */
+.gtoast{position:fixed;z-index:45;top:max(14px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);width:min(460px,calc(100% - 32px));display:flex;gap:12px;align-items:center;
+  background:linear-gradient(135deg,#12a05a,#006b35);color:#fff;border-radius:16px;padding:12px 14px;box-shadow:0 16px 36px rgba(0,80,40,.35);animation:gin .35s ease-out}
+.gtoast .ic{width:38px;height:38px;border-radius:50%;background:#fff;color:#006b35;display:grid;place-items:center;font-weight:900;font-size:19px;flex:none}
+.gtoast div{flex:1;min-width:0;font-size:12.5px}
+.gtoast strong{display:block;font-size:14.5px;margin-bottom:2px}
+.gtoast button{border:0;background:rgba(255,255,255,.18);color:#fff;border-radius:10px;width:34px;height:34px;font-size:17px;font-weight:800;flex:none;cursor:pointer}
+@keyframes gin{from{opacity:0;transform:translate(-50%,-10px)}to{opacity:1;transform:translate(-50%,0)}}
+.a-ok.pulse-ok{animation:okglow 1.6s ease-in-out infinite}
+@keyframes okglow{50%{box-shadow:0 0 0 3px rgba(18,183,106,.22)}}
+
+/* ---------- System view ---------- */
+.sys-sub{margin:-4px 0 4px;color:var(--muted);font-size:13px;font-weight:600}
+.pipe{display:flex;align-items:stretch;margin:18px 0 6px;padding:2px}
+.pn{flex:1 1 0;min-width:0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 10px 14px;display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:8px;position:relative;box-shadow:0 8px 22px -14px rgba(0,53,26,.25);transition:border-color .3s,opacity .3s}
+.pn-i{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:var(--soft-2);color:var(--muted);transition:background .3s,color .3s}
+.pn-i .i{width:24px;height:24px}
+.pn-t{display:flex;flex-direction:column;gap:3px;min-width:0}
+.pn-t b{font-size:13px;color:var(--ink)}
+.pn-t small{font-size:11.5px;color:var(--muted);font-weight:600;line-height:1.35;overflow-wrap:anywhere}
+.pn .led{position:absolute;top:10px;inset-inline-end:10px}
+.pn.ok{border-color:#bfe6d5}.pn.ok .pn-i{background:var(--green-bg);color:var(--teal)}
+.pn.warn{border-color:#f3dcae}.pn.warn .pn-i{background:var(--orange-bg);color:var(--orange-ink)}
+.pn.bad{border-color:#f3c3c6}.pn.bad .pn-i{background:var(--red-bg);color:var(--red-ink)}
+.pn.idle{opacity:.62;border-style:dashed}
+.pl{flex:0 0 40px;align-self:center;height:6px;border-radius:3px;margin:0 -1px;
+  background:repeating-linear-gradient(90deg,#d5e0e5 0 6px,transparent 6px 11px)}
+.pl.flow{background:radial-gradient(circle,var(--teal-2) 2.3px,transparent 2.9px) 0 50%/12px 6px repeat-x,#e1f2e6;animation:flow .7s linear infinite}
+.pl.back{background:radial-gradient(circle,var(--orange) 2.3px,transparent 2.9px) 0 50%/12px 6px repeat-x,#fdf1db;animation:flowr .5s linear infinite}
+.pl.bad{background:repeating-linear-gradient(90deg,#f0a9ad 0 6px,transparent 6px 11px)}
+[dir=rtl] .pl.flow{animation-name:flowr}[dir=rtl] .pl.back{animation-name:flow}
+@keyframes flow{to{background-position:12px 50%,0 0}}
+@keyframes flowr{to{background-position:-12px 50%,0 0}}
+@keyframes flowv{to{background-position:50% 12px,0 0}}
+@keyframes flowvr{to{background-position:50% -12px,0 0}}
+.sys-kv{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+.sys-kv div{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0}
+.sys-kv span{display:block;font-size:11.5px;color:var(--muted);font-weight:700;margin-bottom:3px}
+.sys-kv b{display:block;font-size:13px;color:var(--ink);overflow-wrap:anywhere}
+.how-list{list-style:none;margin:4px 0 16px;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:h}
+.how-list li{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--text);counter-increment:h}
+.how-list li:before{content:counter(h);flex:none;width:26px;height:26px;border-radius:50%;background:var(--green-bg);color:var(--teal);font-weight:800;font-size:12.5px;display:grid;place-items:center;margin-top:-2px}
+.sys-grid{display:grid;grid-template-columns:1fr;gap:18px}
+
+/* ---------- Alerts ---------- */
+.alerts{display:flex;flex-direction:column;gap:10px}
+.al{border-radius:14px;padding:13px 14px;display:grid;grid-template-columns:auto 1fr auto;gap:3px 11px;align-items:start;border:1px solid transparent}
+.al .ai{grid-row:span 2;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.al .ai svg{width:16px;height:16px;stroke-width:2.6}
+.al b{font-size:13.5px;color:var(--ink)}
+.al time{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.al p{grid-column:2/4;margin:0;font-size:12.5px;color:var(--text)}
+.al .btns{grid-column:1/-1;display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.al .btns button{flex:1;min-height:40px;border-radius:11px;padding:9px 12px;font-weight:700;font-size:13px;border:1.5px solid var(--red);background:#fff;color:var(--red-ink)}
+.al .btns button.solid{background:var(--red);color:#fff}
+.a-over{background:var(--red-bg);border-color:#f8cfd1} .a-over .ai{background:var(--red)}
+.a-due{background:var(--orange-bg);border-color:#f7e0b4} .a-due .ai{background:var(--orange)}
+.a-ok{background:var(--green-bg);border-color:#cbeedd} .a-ok .ai{background:var(--green)}
+.a-empty{background:var(--gray-bg)} .a-empty .ai{background:var(--gray)}
+.a-over.pulse-card{animation:glow 1.4s infinite}
+.al.ev{padding:10px 12px;background:#fff;border-color:var(--line)}
+.al.ev .ai{width:26px;height:26px}
+.al.ev b{font-size:13px}
+@keyframes glow{50%{box-shadow:0 0 0 5px rgba(229,72,77,.18)}}
+.empty{color:var(--muted);text-align:center;padding:18px 8px;font-size:13px}
+.empty svg{display:block;margin:0 auto 8px;width:34px;height:34px;color:var(--faint)}
+
+/* شريط التنبيه الثابت */
+.abar{position:fixed;z-index:40;bottom:max(16px,env(safe-area-inset-bottom));inset-inline-end:20px;width:min(460px,calc(100% - 40px));
+  background:var(--red);color:#fff;border-radius:16px;padding:13px 14px;display:flex;align-items:center;gap:12px;box-shadow:0 14px 36px rgba(229,72,77,.42);animation:slide .35s ease}
+@keyframes slide{from{transform:translateY(20px);opacity:0}}
+.abar .x{width:36px;height:36px;border-radius:50%;background:#fff;color:var(--red);display:grid;place-items:center;font-weight:900;flex:none;font-size:18px}
+.abar div{flex:1;min-width:0;font-size:12.5px}
+.abar strong{display:block;font-size:14px}
+.abar button{border:0;background:#fff;color:var(--red-ink);border-radius:10px;padding:9px 12px;font-weight:800;font-size:12.5px;min-height:40px}
+
+/* ---------- Settings / forms ---------- */
+.set-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.form{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:12.5px;font-weight:700;color:var(--muted)}
+.inp{border:1px solid var(--line);background:var(--soft);border-radius:12px;padding:11px 12px;font-size:15px;color:var(--ink);width:100%}
+.inp:focus{outline:2px solid var(--teal-2);outline-offset:1px;background:#fff}
+.inp:disabled{opacity:.6}
+.chk{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:600}
+.chk input{width:20px;height:20px;accent-color:var(--teal)}
+.fsec{grid-column:1/-1;font-size:13px;font-weight:800;color:var(--ink);margin-top:4px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+.fbtns{display:flex;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.btn{background:var(--teal);color:#fff;border:0;border-radius:12px;padding:11px 20px;font-weight:700;min-height:44px;transition:filter .2s}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}
+.btn.red{background:transparent;color:var(--red-ink);border:1.5px solid #f2b8bb}
+.btn.block{width:100%}
+.msg{font-size:13px;font-weight:700}
+.note{display:flex;gap:10px;background:var(--blue-bg);color:var(--blue-ink);border-radius:12px;padding:12px 14px;font-size:13px;font-weight:600;margin-bottom:14px}
+.connline{display:flex;align-items:center;gap:9px;margin:0 0 14px;font-size:13.5px;color:var(--ink)}
+.prows{display:flex;flex-direction:column}
+.prow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13.5px;font-weight:700;color:var(--ink)}
+.prow:last-of-type{border-bottom:0}
+.seg.light{background:var(--soft-2);flex:none}
+.seg.light button{color:var(--muted);padding:7px 12px}
+.seg.light button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,53,26,.12)}
+.sw{appearance:none;-webkit-appearance:none;width:44px;height:26px;border-radius:99px;background:var(--gray);position:relative;cursor:pointer;flex:none;transition:background .2s}
+.sw:before{content:"";position:absolute;top:3px;inset-inline-start:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.sw:checked{background:var(--teal)}
+.sw:checked:before{transform:translateX(18px)}
+[dir=rtl] .sw:checked:before{transform:translateX(-18px)}
+.btn.sm{min-height:36px;padding:7px 14px;font-size:13px}
+details.devset{grid-column:1/-1}
+details.devset summary{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:16px;color:var(--ink);list-style:none}
+details.devset summary::-webkit-details-marker{display:none}
+details.devset summary:after{content:"+";margin-inline-start:auto;font-size:20px;color:var(--muted)}
+details.devset[open] summary:after{content:"−"}
+details.devset[open] summary{margin-bottom:16px}
+details.adv summary{cursor:pointer;color:var(--muted);font-weight:700;font-size:12.5px;margin:12px 0 8px}
+.hint{font-size:12px;color:var(--muted);font-weight:500}
+
+/* ---------- Connect modal ---------- */
+.modal{position:fixed;inset:0;background:rgba(0,30,15,.55);backdrop-filter:blur(4px);z-index:60;display:grid;place-items:center;padding:16px}
+.mbox{background:var(--card);border-radius:22px;box-shadow:var(--shadow-lg);width:min(460px,100%);padding:26px;animation:fade .3s ease;max-height:calc(100vh - 32px);overflow:auto}
+.mbox .mi{width:54px;height:54px;border-radius:16px;background:var(--green-bg);color:var(--teal);display:grid;place-items:center;margin-bottom:14px}
+.mbox .mi svg{width:28px;height:28px}
+.mbox h2{margin:0 0 6px;color:var(--ink);font-size:20px}
+.mbox p{margin:0 0 16px;color:var(--muted);font-size:13.5px}
+.or{display:flex;align-items:center;gap:10px;color:var(--faint);font-size:12px;margin:14px 0}
+.or:before,.or:after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* ---------- Skeleton ---------- */
+.sk{background:linear-gradient(90deg,var(--soft-2),#f8fbfc,var(--soft-2));background-size:200% 100%;animation:sk 1.3s infinite;border-radius:8px;color:transparent!important}
+@keyframes sk{to{background-position:-200% 0}}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1320px){
+  .grid{grid-template-columns:1fr 1.2fr}
+  .col-alerts{grid-column:1/-1}
+}
+@media (max-width:1000px){
+  :root{--side-w:78px}
+  .logo span,.nav button span,.side-foot{display:none}
+  .logo{justify-content:center;padding-inline:0}
+  .nav button{justify-content:center;padding:12px 0;position:relative}
+  .nav .cnt{position:absolute;top:3px;inset-inline-end:8px;margin:0}
+  .grid,.set-grid{grid-template-columns:1fr}
+  .m-only{display:grid}
+}
+@media (max-width:1100px){
+  .pipe{flex-direction:column;align-items:stretch}
+  .pn{flex-direction:row;text-align:start;padding:12px 14px;gap:12px}
+  .pn-i{width:42px;height:42px}
+  .pn .led{top:50%;transform:translateY(-50%)}
+  .pn-t{padding-inline-end:18px}
+  .pl{flex:0 0 26px;width:6px;height:auto;margin:-1px 0;align-self:auto;margin-inline-start:32px;
+    background:repeating-linear-gradient(180deg,#d5e0e5 0 6px,transparent 6px 11px)}
+  .pl.flow,[dir=rtl] .pl.flow{background:radial-gradient(circle,var(--teal-2) 2.3px,transparent 2.9px) 50% 0/6px 12px repeat-y,#e1f2e6;animation-name:flowv}
+  .pl.back,[dir=rtl] .pl.back{background:radial-gradient(circle,var(--orange) 2.3px,transparent 2.9px) 50% 0/6px 12px repeat-y,#fdf1db;animation-name:flowvr}
+  .pl.bad{background:repeating-linear-gradient(180deg,#f0a9ad 0 6px,transparent 6px 11px)}
+}
+@media (max-width:640px){
+  .side{inset:auto 0 0 0;width:auto;height:auto;flex-direction:row;padding:6px 8px calc(6px + env(safe-area-inset-bottom));border-radius:20px 20px 0 0;box-shadow:0 -6px 24px rgba(0,53,26,.2)}
+  .logo{display:none}
+  .mbrand{display:flex}
+  .nav{flex-direction:row;flex:1;justify-content:space-around}
+  .nav button{flex-direction:column;gap:3px;font-size:11px;padding:8px 4px;flex:1;width:auto}
+  .nav button span{display:block}
+  .main{margin:0;padding:14px 14px 100px}
+  .topbar{align-items:center}
+  .topbar h1{font-size:19px}
+  .chip .txt{display:none}
+  .chip{padding:0 12px}
+  .card{padding:15px}
+  .mapbox{grid-template-columns:1fr}
+  #body{max-width:340px;max-height:none}
+  .abar{bottom:calc(80px + env(safe-area-inset-bottom));inset-inline:12px;width:auto}
+  .tb-act{flex-wrap:nowrap}
+  .phead{padding:15px}
+  .pbody{padding:15px;gap:14px}
+  .who b{font-size:17px}
+  .sys-kv{grid-template-columns:1fr 1fr}
+  .topbar{gap:8px}
+  .topbar>*{min-width:0}
+  .topbar h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tb-act{gap:6px;flex:none}
+}
+@media (max-width:360px){
+  .ibtn{width:36px;height:36px}
+  .topbar h1{font-size:17px}
+  .mbrand span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/><path d="M7.5 12h2.2l1.4-2.4 1.8 4.4 1.4-2h2.2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 7v6"/><path d="M12 16.8v.4"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2 8.8a15 15 0 0 1 20 0"/><path d="M5 12.6a10 10 0 0 1 14 0"/><path d="M8.5 16.3a5 5 0 0 1 7 0"/><path d="M12 20h.01"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H8a5 5 0 1 1 1.2-9.9A6 6 0 0 1 20.6 11 4 4 0 0 1 17.5 19z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 19v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 15h18"/><path d="M7 10V8.5A1.5 1.5 0 0 1 8.5 7h2A1.5 1.5 0 0 1 12 8.5V10"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="4" width="6" height="6" rx="1.5"/><rect x="15" y="14" width="6" height="6" rx="1.5"/><path d="M9 7h4a2 2 0 0 1 2 2v5"/></symbol>
+  <symbol id="i-sensor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4M16.2 7.8a6 6 0 0 1 0 8.4M5 5a10 10 0 0 0 0 14M19 5a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01M11 7.5h6M11 16.5h6"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 0 1-12 0z"/><path d="M12 17v5"/></symbol>
+</svg>
+
+<!-- شعار أثر: نخلة + علامة طبية + نبض -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="athar-mark" viewBox="0 0 100 100">
+    <rect x="45.5" y="5" width="9" height="28" rx="4.2" fill="var(--gold-c,#c9a04c)"/>
+    <rect x="37" y="14.5" width="26" height="9" rx="4.2" fill="var(--gold-c,#c9a04c)"/>
+    <path d="M50 41 C42 31 30 26 16 29 C30 30 41 35 50 41Z" fill="var(--palm,#0b6b35)"/>
+    <path d="M50 41 C58 31 70 26 84 29 C70 30 59 35 50 41Z" fill="var(--palm,#0b6b35)"/>
+    <path d="M50 42 C38 35 24 36 10 48 C25 41 38 40 50 42Z" fill="var(--palm,#0b6b35)"/>
+    <path d="M50 42 C62 35 76 36 90 48 C75 41 62 40 50 42Z" fill="var(--palm,#0b6b35)"/>
+    <rect x="45.5" y="40" width="9" height="40" rx="4.5" fill="var(--palm,#0b6b35)"/>
+    <path d="M9 88 H36 L41.5 79.5 L47 95 L53.5 75.5 L59.5 88 H91" fill="none" stroke="var(--gold-c,#c9a04c)" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+<aside class="side" aria-label="Navigation">
+  <div class="logo"><svg class="brandmark" viewBox="0 0 100 100" aria-hidden="true"><use href="#athar-mark"/></svg><span class="bname"><b>ATHAR</b><em>أثر</em></span></div>
+  <nav class="nav">
+    <button data-view="dash" class="on"><svg class="i"><use href="#i-home"/></svg><span data-i18n="navDash"></span></button>
+    <button data-view="alerts"><svg class="i"><use href="#i-bell"/></svg><span data-i18n="navAlerts"></span><em class="cnt" id="navCnt" hidden>0</em></button>
+    <button data-view="system"><svg class="i"><use href="#i-flow"/></svg><span data-i18n="navSystem"></span></button>
+    <button data-view="settings"><svg class="i"><use href="#i-gear"/></svg><span data-i18n="navSettings"></span></button>
+  </nav>
+  <div class="side-foot">
+    <div class="brand-tag">From healthcare challenges to meaningful impact</div>
+    <div class="dev"><b><i class="led" id="sideLed"></i><span id="sideMode">--</span></b><span class="ltr" id="sideDev"></span></div>
+    <div class="seg" role="group" aria-label="Language"><button data-lang="ar">ع</button><button data-lang="en">EN</button></div>
+  </div>
+</aside>
+
+<div class="main" id="main">
+  <header class="topbar">
+    <div class="mbrand" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#athar-mark"/></svg><span>أثر</span></div>
+    <h1 id="viewTitle"></h1>
+    <div class="tb-act">
+      <span class="chip" id="connChip"><i class="led" id="connLed"></i><span class="txt" id="connTxt">--</span></span>
+      <button class="ibtn m-only" id="langM" aria-label="Language"><svg class="i"><use href="#i-globe"/></svg></button>
+      <button class="ibtn" id="soundBtn" aria-label="Sound">
+        <svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/><path class="sl" d="M3 3l18 18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="banner" id="banner" hidden role="status"><svg class="i"><use href="#i-info"/></svg><span id="bannerTxt"></span><button id="bannerBtn" hidden></button></div>
+
+  <!-- ===== لوحة التحكم ===== -->
+  <section class="view" id="v-dash">
+    <div class="pstrip" id="pStrip" hidden></div>
+    <div class="grid">
+      <!-- 1) حالة المريض -->
+      <div class="card pcard">
+        <div class="phead">
+          <div class="avatar rk-wait" id="avatar"><svg class="i"><use href="#i-user"/></svg></div>
+          <div class="who"><b id="pName">--</b><span id="pRoom"></span></div>
+        </div>
+        <div class="pbody">
+          <div class="bigpill p-empty" id="pStatus"><i></i><span>--</span></div>
+          <div class="nowp" id="nowP"><span data-i18n="nowPLbl"></span><small id="nowPLvl">--</small><b id="nowPVal" class="num">--</b>
+            <div class="meter"><i id="nowPBar"></i></div></div>
+          <div class="next"><span data-i18n="nextLbl"></span><b id="nextIn">--</b><small id="nextAt"></small></div>
+          <div class="prog">
+            <div class="lbl"><span data-i18n="stillTime"></span><em class="ltr num" id="stillTxt">--</em></div>
+            <div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="stillTrack"><i id="stillBar"></i></div>
+            <div class="state" id="motionState"></div>
+          </div>
+          <div class="prog">
+            <div class="lbl"><span data-i18n="stableTime"></span><em class="ltr num" id="stableTxt">--</em></div>
+            <div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="stableTrack"><i id="stableBar"></i></div>
+            <div class="state" id="pressState"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2) خريطة الضغط -->
+      <div class="card col-map">
+        <div class="card-h"><span class="hi"><svg class="i"><use href="#i-bed"/></svg></span><h2 data-i18n="mapTitle"></h2></div>
+        <div class="mapbox">
+          <div class="figwrap" id="figwrap"><span class="mvtag" id="mvTag" hidden></span>
+            <svg id="body" viewBox="-36 -50 272 596" role="img" aria-labelledby="bodyTitle">
+              <title id="bodyTitle">Body pressure map</title>
+              <defs>
+                <linearGradient id="bodyGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="500">
+                  <stop offset="0" stop-color="var(--body-1)"/><stop offset="1" stop-color="var(--body-2)"/>
+                </linearGradient>
+                <radialGradient id="g3"><stop offset="0" stop-color="#dc1f2b"/><stop offset=".3" stop-color="#e8402f"/><stop offset=".58" stop-color="#f5922a" stop-opacity=".85"/><stop offset=".82" stop-color="#fbd04a" stop-opacity=".45"/><stop offset="1" stop-color="#fde68a" stop-opacity="0"/></radialGradient>
+                <radialGradient id="g2"><stop offset="0" stop-color="#ee7a12"/><stop offset=".35" stop-color="#f59e1c"/><stop offset=".65" stop-color="#fbc43c" stop-opacity=".7"/><stop offset="1" stop-color="#fde68a" stop-opacity="0"/></radialGradient>
+                <radialGradient id="g1"><stop offset="0" stop-color="#0f8a55"/><stop offset=".35" stop-color="#1fa36b"/><stop offset=".68" stop-color="#6fd2a2" stop-opacity=".6"/><stop offset="1" stop-color="#bff0d6" stop-opacity="0"/></radialGradient>
+                <radialGradient id="g0"><stop offset="0" stop-color="#9fb2b9" stop-opacity=".5"/><stop offset="1" stop-color="#9fb2b9" stop-opacity="0"/></radialGradient>
+                <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.1"/></filter>
+                <clipPath id="bodyClip"></clipPath>
+                <linearGradient id="frameG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#cbd8de"/><stop offset=".5" stop-color="#dfe8ec"/><stop offset="1" stop-color="#cbd8de"/></linearGradient>
+                <linearGradient id="mattG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f1f7f8"/></linearGradient>
+                <linearGradient id="pillowG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9f1f3"/></linearGradient>
+                <pattern id="quilt" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0H30M0 0V30" stroke="#e2ebee" stroke-width="1.1"/></pattern>
+                <clipPath id="mattClip"><rect x="-20" y="-30" width="240" height="556" rx="22"/></clipPath>
+                <filter id="bshadow" x="-20%" y="-10%" width="140%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#10331f" flood-opacity=".14"/></filter>
+              </defs>
+              <g id="bed" aria-hidden="true">
+                <rect x="-34" y="-36" width="268" height="578" rx="30" fill="url(#frameG)" stroke="#bfced5"/>
+                <rect x="-22" y="-49" width="244" height="18" rx="9" fill="#a9bec7"/>
+                <rect x="-36" y="100" width="9" height="230" rx="4.5" fill="#b4c6ce"/><rect x="227" y="100" width="9" height="230" rx="4.5" fill="#b4c6ce"/>
+                <rect x="-20" y="-30" width="240" height="556" rx="22" fill="url(#mattG)" stroke="#d9e4e8"/>
+                <g clip-path="url(#mattClip)">
+                  <rect x="-20" y="-30" width="240" height="556" fill="url(#quilt)" opacity=".9"/>
+                  <rect x="-20" y="498" width="240" height="28" fill="#d3eee7"/><path d="M-20 498H220" stroke="#b9e2d7" stroke-width="2"/>
+                  <path d="M-20 510H220" stroke="#e6f6f2" stroke-width="2" stroke-dasharray="6 6"/>
+                </g>
+                <rect x="34" y="-20" width="132" height="76" rx="28" fill="url(#pillowG)" stroke="#d6e1e5"/>
+                <rect x="44" y="-11" width="112" height="58" rx="21" fill="none" stroke="#e3ebee" stroke-dasharray="3 4"/>
+              </g>
+              <g id="figOutline" filter="url(#bshadow)"></g>
+              <g id="figFill"></g>
+              <g id="heat" clip-path="url(#bodyClip)"></g>
+              <g id="zones"></g>
+            </svg>
+            <div class="tip" id="tip" hidden></div>
+          </div>
+          <ul id="sensList" hidden></ul>
+        </div>
+        <div class="legend" aria-hidden="true">
+          <span><i class="dot d1"></i><span data-i18n="lvl1"></span></span>
+          <span><i class="dot d2"></i><span data-i18n="lvl2"></span></span>
+          <span><i class="dot d3"></i><span data-i18n="lvl3"></span></span>
+        </div>
+      </div>
+
+      <!-- 3) التنبيهات -->
+      <div class="card col-alerts">
+        <div class="card-h"><span class="hi red"><svg class="i"><use href="#i-bell"/></svg></span><h2 data-i18n="navAlerts"></h2><button class="link r" data-goto="alerts" data-i18n="viewAll"></button></div>
+        <div class="alerts" id="liveAlerts"></div>
+        <div class="clockbox" aria-live="off"><b id="clkTime">--:--</b><span id="clkDate"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== سجل التنبيهات ===== -->
+  <section class="view" id="v-alerts" hidden>
+    <div class="card">
+      <div class="card-h"><span class="hi red"><svg class="i"><use href="#i-bell"/></svg></span><h2 data-i18n="alertLog"></h2><span class="r pill p-over" id="cntPill"><i></i><span>0</span></span></div>
+      <div class="alerts" id="fullLog"></div>
+    </div>
+  </section>
+
+  <!-- ===== النظام ===== -->
+  <section class="view" id="v-system" hidden>
+    <div class="sys-grid">
+      <div class="card">
+        <div class="card-h"><span class="hi"><svg class="i"><use href="#i-flow"/></svg></span><h2 data-i18n="sysTitle"></h2></div>
+        <p class="sys-sub" id="sysSub"></p>
+        <div class="pipe" id="pipe"></div>
+        <div class="sys-kv" id="sysKv"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== الإعدادات ===== -->
+  <section class="view" id="v-settings" hidden>
+    <div class="set-grid">
+      <div class="card">
+        <div class="card-h"><span class="hi"><svg class="i"><use href="#i-plug"/></svg></span><h2 data-i18n="connTitle"></h2></div>
+        <p class="connline"><i class="led" id="setLed"></i><b id="setState">--</b></p>
+        <div id="localNote" class="note" hidden><svg class="i"><use href="#i-wifi"/></svg><span data-i18n="localNote"></span></div>
+        <form id="connForm" onsubmit="return false">
+          <label class="f"><span data-i18n="devId"></span><input class="inp ltr" id="devIdInp" autocomplete="off" spellcheck="false" placeholder="pc-4821" maxlength="40"></label>
+          <details class="adv"><summary data-i18n="advanced"></summary>
+            <label class="f"><span data-i18n="brokerUrl"></span><input class="inp ltr" id="brokerInp" spellcheck="false" placeholder="wss://broker.hivemq.com:8884/mqtt"></label>
+          </details>
+          <div class="fbtns">
+            <button class="btn" id="connectBtn" data-i18n="connect"></button>
+            <button class="btn red" id="disconnectBtn" data-i18n="disconnect"></button>
+            <button class="btn ghost" id="demoBtn2" data-i18n="tryDemo"></button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><span class="hi"><svg class="i"><use href="#i-gear"/></svg></span><h2 data-i18n="prefTitle"></h2></div>
+        <div class="prows">
+          <div class="prow"><span data-i18n="pLang"></span><div class="seg light" role="group" aria-label="Language"><button data-lang="ar">العربية</button><button data-lang="en">English</button></div></div>
+          <label class="prow" for="soundChk"><span data-i18n="pSound"></span><input type="checkbox" class="sw" id="soundChk"></label>
+          <label class="prow" for="zoneSel"><span data-i18n="pZone"></span><select class="inp sm" id="zoneSel" style="max-width:190px;padding:7px 10px"></select></label>
+          <div class="prow" id="notifRow"><span data-i18n="pNotif"></span><button class="btn ghost sm" id="notifBtn" data-i18n="enable"></button></div>
+          <span class="msg" id="notifMsg" role="status"></span>
+        </div>
+        <div class="fbtns"><button class="btn ghost" id="testBtn" data-i18n="testSound"></button></div>
+      </div>
+
+      <details class="card devset" id="devCard" hidden>
+        <summary><span class="hi"><svg class="i"><use href="#i-chip"/></svg></span><b data-i18n="devSettings"></b></summary>
+        <form class="form" id="form" onsubmit="return false">
+          <label class="f"><span data-i18n="sName"></span><input class="inp" type="text" name="name" maxlength="40"></label>
+          <label class="f"><span data-i18n="sRoom"></span><input class="inp" type="text" name="room" maxlength="16"></label>
+          <label class="f"><span data-i18n="sStill"></span><input class="inp" type="number" name="stillMin" step="0.5" min="0.5" max="120" required></label>
+          <label class="f"><span data-i18n="sStable"></span><input class="inp" type="number" name="stableMin" step="0.5" min="0.5" max="120" required></label>
+          <label class="f"><span data-i18n="sMin"></span><input class="inp" type="number" name="minPct" step="1" min="1" max="50" required></label>
+          <label class="f"><span data-i18n="sMed"></span><input class="inp" type="number" name="medPct" step="1" min="2" max="98" required></label>
+          <label class="f"><span data-i18n="sHigh"></span><input class="inp" type="number" name="highPct" step="1" min="3" max="99" required></label>
+          <label class="f"><span data-i18n="sDelta"></span><input class="inp" type="number" name="deltaPct" step="1" min="1" max="50" required></label>
+          <label class="chk"><input type="checkbox" name="buzzer"><span data-i18n="sBuzzer"></span></label>
+        </form>
+        <div class="fbtns"><button class="btn" id="saveBtn" data-i18n="save"></button><span class="msg" id="formMsg" role="status"></span></div>
+      </details>
+    </div>
+  </section>
+</div>
+
+<div class="abar" id="abar" hidden role="alert">
+  <span class="x">!</span>
+  <div><strong id="abarTitle" data-i18n="alertTitle"></strong><span id="abarMsg"></span></div>
+  <button id="abarBtn" data-i18n="repositioned"></button>
+</div>
+
+<!-- أول تشغيل: الاتصال بالجهاز -->
+<div class="modal" id="connectModal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="mbox">
+    <div class="mi"><svg class="i"><use href="#i-cloud"/></svg></div>
+    <h2 id="mTitle" data-i18n="mTitle"></h2>
+    <p data-i18n="mText"></p>
+    <form id="mForm" onsubmit="return false">
+      <label class="f"><span data-i18n="devId"></span><input class="inp ltr" id="mDev" autocomplete="off" spellcheck="false" placeholder="pc-4821" maxlength="40" required></label>
+      <details class="adv"><summary data-i18n="advanced"></summary>
+        <label class="f"><span data-i18n="brokerUrl"></span><input class="inp ltr" id="mBroker" spellcheck="false" placeholder="wss://broker.hivemq.com:8884/mqtt"></label>
+      </details>
+      <div class="fbtns"><button class="btn block" id="mConnect" data-i18n="connect"></button></div>
+    </form>
+    <div class="or" data-i18n="or"></div>
+    <button class="btn ghost block" id="mDemo"><span data-i18n="tryDemo"></span></button>
+  </div>
+</div>
+
+<div class="gtoast" id="gToast" hidden role="status"><span class="ic">✓</span><div><strong id="gtTitle"></strong><span id="gtMsg"></span></div><button id="gtX" aria-label="×">×</button></div>
+<div id="live" class="sr-only" aria-live="assertive"></div>
+
+<script>
+(function(){
+"use strict";
+/* =================== النصوص (عربي / English) =================== */
+var T={
+ ar:{skip:"تخطَّ إلى المحتوى",navDash:"لوحة التحكم",navAlerts:"التنبيهات",navSystem:"النظام",navSettings:"الإعدادات",
+  mLocal:"متصل بالجهاز مباشرة",mCloud:"متصل عبر الإنترنت",mDemo:"وضع تجريبي",mNone:"غير متصل",
+  online:"الجهاز متصل",offline:"الجهاز غير متصل",updated:"قبل {s}",now:"الآن",connecting:"جاري الاتصال…",waiting:"بانتظار بيانات الجهاز…",
+  bConnecting:"جاري الاتصال…",bWaiting:"بانتظار بيانات الجهاز «{id}». تأكد إن الجهاز شغّال وإن الرقم صحيح.",
+  bBroker:"تعذّر الاتصال بالخادم. نحاول مرة ثانية…",srvDown:"الخادم غير متصل",
+  bTrying:"جاري الاتصال بالخادم {u} …",bAutoRetry:"نعيد المحاولة تلقائياً",
+  bWaitTopic:"✅ متصل بالخادم ({u}). بانتظار رسائل الجهاز «{id}» على {tp} — تأكد إن كود ESP32 شغّال ويرسل بنفس الرقم.",
+  eLib:"تعذّر تحميل مكتبة الاتصال mqtt.js — تأكد إن اللابتوب متصل بالإنترنت وإن ما فيه إضافة (AdBlock) تمنع unpkg / jsdelivr.",
+  eTimeout:"الخادم {u} ما رد خلال 3 ثواني",eErr:"خطأ في الاتصال بـ {u}: {m}",eRefused:"الخادم {u} رفض الاتصال أو الشبكة تمنعه",
+  eClosed:"انقطع الاتصال بالخادم {u} — نعيد الاتصال…",eSub:"تعذّر الاشتراك في قنوات الجهاز: {m}",bOffline:"الجهاز غير متصل — المعروض آخر بيانات وصلت.",bStale:"ما وصل تحديث من الجهاز منذ {s}.",
+  bLocalLost:"انقطع الاتصال بالجهاز. تأكد إنك متصل بشبكة الجهاز.",bDemo:"وضع تجريبي — البيانات وهمية.",exitDemo:"اتصل بجهاز",retry:"إعادة المحاولة",
+  roomT:"غرفة {r}",patient:"المريض",
+  stOk:"وضع جيد",stDue:"قرب وقت التقليب",stOver:"متأخر — غيّر الوضعية",stEmpty:"لا يوجد مريض",stWait:"بانتظار البيانات",
+  nextLbl:"التقليب القادم",inT:"خلال {m}",atT:"الساعة {h}",nowOver:"الآن — متأخر {m}",
+  stillTime:"بدون حركة",stableTime:"ضغط ثابت",
+  moving:"يتحرك الآن",still:"ساكن",motionErr:"حساس الحركة لا يستجيب",pChanging:"الضغط يتغير",pStable:"الضغط ثابت",noLoad:"الحساس غير ملامس للجسم",
+  mapTitle:"خريطة الضغط",sensTitle:"الحساسات",noSensors:"لا توجد حساسات",noData:"لا توجد بيانات بعد",
+  lvl0:"لا يوجد",lvl1:"منخفض",lvl2:"متوسط",lvl3:"عالي",na:"لا يوجد حساس",
+  viewAll:"عرض الكل",alertLog:"سجل التنبيهات",noEvents:"لا توجد تنبيهات حتى الآن",
+  liveOver:"غيّر وضعية المريض الآن",liveOverP:"متأخر {m}",liveDue:"قرب وقت التقليب",liveDueP:"خلال {m}",
+  liveOk:"الوضع جيد",liveOkP:"التقليب القادم خلال {m}",liveEmpty:"لا يوجد مريض",liveEmptyP:"الحساس غير ملامس للجسم",
+  evAlert:"تنبيه",evAlertP:"المريض بدون حركة والضغط ثابت",evMove:"تحرّك المريض",evMoveP:"انتهى التنبيه بحركة أو تغيّر في الضغط",
+  evResp:"تم تغيير الوضعية",evRespP:"سجّلها الممرض من اللوحة",
+  alertTitle:"تنبيه! غيّر وضعية المريض",
+  nowPLbl:"الضغط الآن",stMotion:"المريض يتحرك",motionTitle:"المريض يتحرك ✅",motionMsg:"{n} تحرّك الساعة {h} — هذا جيد",
+  motionNow:"يتحرك الآن ✅",motionOk:"تم",evMotion:"تحرّك المريض",evMotionP:"حساس الحركة رصد حركة (جيد)",mvTag:"يتحرك ✅",
+  goodTitle:"تم تغيير الوضعية بنجاح ✅",goodMsg:"{n} تحرّك وخفّ الضغط من {a}% إلى {b}%",evGood:"تغيير وضعية ناجح",evGoodP:"تحرّك المريض وخفّ الضغط {a}% ← {b}%",
+  tmLocal:"⏱ العدادات تُحسب في الموقع من الحركة والضغط (الجهاز ما يرسل عدادات تتغير)",demoWard:"المرضى",wardHint:"اضغط على المريض لعرض التفاصيل",roomS:"غرفة",
+  chOk:"وضع جيد",chDue:"قرب التقليب",chOver:"متأخر",chMotion:"يتحرك",chEmpty:"غير ملامس للجسم",chP:"الضغط",chT:"بدون حركة",
+  pZone:"مكان حساس الضغط على الجسم",zAuto:"تلقائي (من الجهاز)",abarMsg:"{n} بدون حركة منذ {m}",srAlert:"تنبيه: غيّر وضعية {n}",
+  mute:"إيقاف الصوت",repositioned:"تم تغيير الوضعية",
+  sysTitle:"مسار البيانات",n_sens:"الحساسات",n_esp:"ESP32-C3",n_net:"الإنترنت",n_broker:"خادم MQTT",n_dash:"لوحة التحكم",
+  s_wait:"بانتظار",s_sens:"حركة {m} · ضغط ×{n}",s_sim:"محاكاة",s_unused:"غير مستخدم",s_devOn:"متصل",s_devOff:"غير متصل",
+  s_sending:"يرسل",s_noNet:"لا تصل بيانات",s_brOk:"متصل",s_brConn:"جاري الاتصال",s_brBad:"غير متصل",s_dash:"{r} رسالة/د",
+  sysLocal:"اللوحة تقرأ من الجهاز مباشرة عبر شبكته — بدون إنترنت.",sysCloud:"الحساسات ← ESP32 ← الإنترنت ← خادم MQTT ← هذه اللوحة. والأزرار ترجع بنفس الطريق.",
+  sysDemo:"وضع تجريبي: البيانات مولّدة داخل المتصفح.",sysNone:"غير متصل بأي جهاز بعد.",
+  k_mode:"الوضع",k_dev:"رقم الجهاز",k_last:"آخر رسالة",k_rate:"رسائل/دقيقة",
+  connTitle:"الاتصال بالجهاز",devId:"رقم الجهاز (Device ID)",advanced:"متقدم",brokerUrl:"عنوان خادم MQTT",
+  connect:"اتصال",disconnect:"قطع الاتصال",tryDemo:"جرّب الوضع التجريبي",
+  localNote:"أنت متصل بالجهاز مباشرة عبر شبكته.",
+  prefTitle:"التفضيلات",pLang:"اللغة",pSound:"صوت التنبيه في المتصفح",pNotif:"إشعارات المتصفح",enable:"تفعيل",
+  notifOn:"مفعّلة ✓",notifDenied:"مرفوضة من المتصفح",notifNA:"تحتاج رابط https",testSound:"تجربة الصوت",
+  devSettings:"إعدادات الجهاز",sName:"اسم المريض",sRoom:"رقم الغرفة",sStill:"مدة بدون حركة قبل التنبيه (دقيقة)",sStable:"مدة ثبات الضغط قبل التنبيه (دقيقة)",
+  sMin:"حد وجود الضغط (%)",sMed:"بداية المتوسط (%)",sHigh:"بداية العالي (%)",sDelta:"التغيّر المسموح لاعتبار الضغط ثابتاً (%)",sBuzzer:"جرس الجهاز",
+  save:"حفظ",saved:"تم الحفظ ✓",saveErr:"لازم: وجود الضغط < المتوسط < العالي",netErr:"تعذّر الاتصال بالجهاز",
+  mTitle:"اتصل بجهاز المراقبة",mText:"اكتب رقم الجهاز اللي يطلع في الـ Serial Monitor.",or:"أو",
+  min:"د",sec:"ث",hr:"س",
+  z_head:"مؤخرة الرأس",z_shoulder_l:"الكتف الأيسر",z_shoulder_r:"الكتف الأيمن",z_elbow_l:"المرفق الأيسر",z_elbow_r:"المرفق الأيمن",
+  z_sacrum:"أسفل الظهر",z_heel_l:"الكعب الأيسر",z_heel_r:"الكعب الأيمن"},
+ en:{skip:"Skip to content",navDash:"Dashboard",navAlerts:"Alerts",navSystem:"System",navSettings:"Settings",
+  mLocal:"Direct to device",mCloud:"Connected via internet",mDemo:"Demo mode",mNone:"Not connected",
+  online:"Device connected",offline:"Device offline",updated:"{s} ago",now:"just now",connecting:"Connecting…",waiting:"Waiting for device…",
+  bConnecting:"Connecting…",bWaiting:"Waiting for data from device “{id}”. Check that it is running and the ID is right.",
+  bBroker:"Can't reach the server. Retrying…",srvDown:"Server not connected",
+  bTrying:"Connecting to server {u} …",bAutoRetry:"retrying automatically",
+  bWaitTopic:"✅ Connected to server ({u}). Waiting for messages from device “{id}” on {tp} — make sure the ESP32 code is running and uses the same ID.",
+  eLib:"Couldn't load the connection library mqtt.js — check the internet connection and that no extension (AdBlock) blocks unpkg / jsdelivr.",
+  eTimeout:"Server {u} did not answer within 3 seconds",eErr:"Connection error on {u}: {m}",eRefused:"Server {u} refused the connection or the network blocks it",
+  eClosed:"Lost the connection to {u} — reconnecting…",eSub:"Couldn't subscribe to the device topics: {m}",bOffline:"Device is offline — showing the last data received.",bStale:"No update from the device for {s}.",
+  bLocalLost:"Lost connection to the device. Make sure you're on the device Wi-Fi.",bDemo:"Demo mode — data is simulated.",exitDemo:"Connect a device",retry:"Retry",
+  roomT:"Room {r}",patient:"Patient",
+  stOk:"Good",stDue:"Due soon",stOver:"Overdue — reposition now",stEmpty:"No patient",stWait:"Waiting for data",
+  nextLbl:"Next reposition",inT:"in {m}",atT:"at {h}",nowOver:"Now — {m} overdue",
+  stillTime:"No movement",stableTime:"Stable pressure",
+  moving:"Moving now",still:"Still",motionErr:"Motion sensor not responding",pChanging:"Pressure changing",pStable:"Pressure stable",noLoad:"Sensor not in contact with body",
+  mapTitle:"Pressure map",sensTitle:"Sensors",noSensors:"No sensors",noData:"No data yet",
+  lvl0:"None",lvl1:"Low",lvl2:"Medium",lvl3:"High",na:"No sensor",
+  viewAll:"View all",alertLog:"Alert log",noEvents:"No alerts yet",
+  liveOver:"Reposition the patient now",liveOverP:"{m} overdue",liveDue:"Reposition due soon",liveDueP:"in {m}",
+  liveOk:"All good",liveOkP:"Next reposition in {m}",liveEmpty:"No patient",liveEmptyP:"Sensor not in contact with body",
+  evAlert:"Alert",evAlertP:"Patient still with constant pressure",evMove:"Patient moved",evMoveP:"Alert ended by movement or pressure change",
+  evResp:"Repositioned",evRespP:"Logged by the nurse from the dashboard",
+  alertTitle:"Alert! Reposition the patient",
+  nowPLbl:"Pressure now",stMotion:"Patient moving",motionTitle:"Patient is moving ✅",motionMsg:"{n} moved at {h} — good",
+  motionNow:"Moving now ✅",motionOk:"OK",evMotion:"Patient moved",evMotionP:"The motion sensor detected movement (good)",mvTag:"Moving ✅",
+  goodTitle:"Repositioned successfully ✅",goodMsg:"{n} moved and pressure dropped from {a}% to {b}%",evGood:"Successful repositioning",evGoodP:"Patient moved and pressure dropped {a}% → {b}%",
+  tmLocal:"⏱ Timers are computed by the site from motion and pressure (the device does not send changing timers)",demoWard:"Patients",wardHint:"Tap a patient to see details",roomS:"Room",
+  chOk:"Good",chDue:"Due soon",chOver:"Overdue",chMotion:"Moving",chEmpty:"Not attached to body",chP:"Pressure",chT:"Still for",
+  pZone:"Pressure sensor position on the body",zAuto:"Automatic (from device)",abarMsg:"{n} still for {m}",srAlert:"Alert: reposition {n}",
+  mute:"Mute",repositioned:"Repositioned",
+  sysTitle:"Data path",n_sens:"Sensors",n_esp:"ESP32-C3",n_net:"Internet",n_broker:"MQTT server",n_dash:"Dashboard",
+  s_wait:"Waiting",s_sens:"Motion {m} · Pressure ×{n}",s_sim:"Simulated",s_unused:"Not used",s_devOn:"Online",s_devOff:"Offline",
+  s_sending:"Sending",s_noNet:"Nothing arriving",s_brOk:"Connected",s_brConn:"Connecting",s_brBad:"Not connected",s_dash:"{r} msg/min",
+  sysLocal:"The dashboard reads straight from the device over its Wi-Fi — no internet.",sysCloud:"Sensors → ESP32 → Internet → MQTT server → this dashboard. Buttons travel back the same way.",
+  sysDemo:"Demo mode: data is generated in the browser.",sysNone:"Not connected to a device yet.",
+  k_mode:"Mode",k_dev:"Device ID",k_last:"Last message",k_rate:"Messages/min",
+  connTitle:"Device connection",devId:"Device ID",advanced:"Advanced",brokerUrl:"MQTT server URL",
+  connect:"Connect",disconnect:"Disconnect",tryDemo:"Try demo mode",
+  localNote:"You're connected directly to the device over its Wi-Fi.",
+  prefTitle:"Preferences",pLang:"Language",pSound:"Alert sound in the browser",pNotif:"Browser notifications",enable:"Enable",
+  notifOn:"Enabled ✓",notifDenied:"Blocked by the browser",notifNA:"Needs an https link",testSound:"Test sound",
+  devSettings:"Device settings",sName:"Patient name",sRoom:"Room number",sStill:"No-movement time before alert (min)",sStable:"Stable-pressure time before alert (min)",
+  sMin:"Pressure presence threshold (%)",sMed:"Medium starts at (%)",sHigh:"High starts at (%)",sDelta:"Allowed change to count as stable (%)",sBuzzer:"Device buzzer",
+  save:"Save",saved:"Saved ✓",saveErr:"Required: presence < medium < high",netErr:"Cannot reach the device",
+  mTitle:"Connect to a monitor",mText:"Enter the Device ID shown in the Serial Monitor.",or:"or",
+  min:"min",sec:"s",hr:"h",
+  z_head:"Back of head",z_shoulder_l:"Left shoulder",z_shoulder_r:"Right shoulder",z_elbow_l:"Left elbow",z_elbow_r:"Right elbow",
+  z_sacrum:"Lower back",z_heel_l:"Left heel",z_heel_r:"Right heel"}
+};
+
+/* =================== الثوابت =================== */
+var MQTT_URLS=["https://unpkg.com/mqtt@5.10.1/dist/mqtt.min.js","https://cdn.jsdelivr.net/npm/mqtt@5.10.1/dist/mqtt.min.js"];
+var BRAND_TITLE="ATHAR | أثر";
+var DEFAULT_BROKER="wss://broker.hivemq.com:8884/mqtt";   // الأساسي (مشفّر)
+var FALLBACK_BROKER="ws://broker.hivemq.com:8000/mqtt";    // البديل لو فشل الأساسي خلال 3 ثواني
+var CONNECT_WAIT_MS=3000;
+var TOPIC_ROOT="positioncare/v1/";
+var STALE_MS=5000;
+// مواقع المناطق على الرسمة (منظر خلفي: يسار المريض = يسار الصورة)
+var ZONES={head:[100,36],shoulder_l:[80,116],shoulder_r:[120,116],elbow_l:[43,192],elbow_r:[157,192],sacrum:[100,236],heel_l:[80,472],heel_r:[120,472]};
+var BODY="M100 64 C104 64 108 64 109 64 C110 71 110 76 113 80 C123 85 137 87 146 94 C154 100 157 111 154 124 C150 141 146 160 140 178 C136 192 135 205 138 220 C143 240 145 262 143 286 C141 320 136 350 133 372 C132 392 136 410 133 432 C131 448 127 457 126 465 C128 473 128 483 120 485 C113 487 108 483 108 474 C107 462 108 452 107 440 C105 410 104 392 105 372 C105 345 103 310 101 290 C100.6 288 100.3 287 100 287 C99.7 287 99.4 288 99 290 C97 310 95 345 95 372 C96 392 95 410 93 440 C92 452 93 462 92 474 C92 483 87 487 80 485 C72 483 72 473 74 465 C73 457 69 448 67 432 C64 410 68 392 67 372 C64 350 59 320 57 286 C55 262 57 240 62 220 C65 205 64 192 60 178 C54 160 50 141 46 124 C43 111 46 100 54 94 C63 87 77 85 87 80 C90 76 90 71 91 64 C92 64 96 64 100 64 Z";
+var ARM_R="M146 96 C158 100 162 118 161 140 C161 160 163 175 164 192 C166 215 169 240 171 266 C173 276 177 286 175 297 C173 305 164 305 162 297 C160 288 161 278 160 268 C157 242 154 218 151 195 C149 175 147 158 145 140 Z";
+var ARM_L="M54 96 C42 100 38 118 39 140 C39 160 37 175 36 192 C34 215 31 240 29 266 C27 276 23 286 25 297 C27 305 36 305 38 297 C40 288 39 278 40 268 C43 242 46 218 49 195 C51 175 53 158 55 140 Z";
+var VB={x:-36,y:-50,w:272};   // viewBox الخريطة (السرير + الجسم)
+var LVLC=["var(--gray)","var(--green)","var(--orange)","var(--red)"];
+var PILL={ok:["p-ok","stOk"],due:["p-due","stDue"],over:["p-over","stOver"],empty:["p-empty","stEmpty"],wait:["p-empty","stWait"],motion:["p-ok","stMotion"]};
+// الحركة شيء جيد (أخضر). المشكلة = عدم الحركة لفترة مع ضغط ثابت (تنبيه أحمر)
+var MOTION_HOLD_MS=8000, motionUntil=0, motionAt=0, ignoreMotionUntil=0, motionEvents=[], goodEvents=[];
+// إشعار "تغيير وضعية ناجح": حركة + انخفاض الضغط GOOD_DROP نقطة خلال GOOD_WIN_MS
+var GOOD_DROP=10, GOOD_WIN_MS=20000;
+var RAW=null, prevRaw=null, devTimersAt=0, staticCnt=0, pHist=[], moveEp=null, LT=null, goodTimer=null, demoSel=2;
+var zoneOverride=store("pc_zone")||"";
+
+/* =================== أدوات =================== */
+var $=function(id){return document.getElementById(id)};
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return "&#"+c.charCodeAt(0)+";"})}
+function qs(k){var m=new RegExp("[?&]"+k+"(=([^&#]*))?").exec(location.search);return m?(m[2]!==undefined?decodeURIComponent(m[2].replace(/\+/g," ")):""):null}
+function cleanId(s){return String(s||"").trim().replace(/[^A-Za-z0-9_\-.]/g,"").slice(0,40)}
+
+var lang=store("pc_lang")||"ar", view="dash", tab="map";
+var S=null, lastMsgAt=0, mode=null;           // mode: local | cloud | demo | null
+var devOnline=null, brokerState="idle", devId="", brokerUrl="", brokerErr="", tryingUrl="", activeBroker="", cloudGen=0, tryTimer=null, brokerList=[], brokerIdx=0;
+var localFails=0, pollTimer=null, client=null, demo=null;
+var msgTimes=[], backUntil=0;
+var prevAlert=false, selZone=null, soundOn=store("pc_sound")!=="0", actx=null, beepTimer=null, titleTimer=null;
+function t(k,v){var s=(T[lang]&&T[lang][k]);if(s==null)s=T.en[k]||k;if(v)Object.keys(v).forEach(function(x){s=s.split("{"+x+"}").join(v[x])});return s}
+function loc(){return lang==="ar"?"ar-u-nu-latn-ca-gregory":"en-US"}
+function mmss(s){s=Math.max(0,Math.floor(s||0));var m=Math.floor(s/60),x=s%60;return (m<10?"0":"")+m+":"+(x<10?"0":"")+x}
+function human(s){s=Math.max(0,Math.floor(s||0));var m=Math.floor(s/60);
+  if(m>=60)return Math.floor(m/60)+" "+t("hr")+" "+(m%60)+" "+t("min");
+  return m>0?m+" "+t("min")+(m<10&&s%60?" "+(s%60)+" "+t("sec"):""):s+" "+t("sec")}
+function clockAt(ms){return new Date(ms).toLocaleTimeString(loc(),{hour:"numeric",minute:"2-digit"})}
+function tickClock(){var d=new Date(),a=$("clkTime"),b=$("clkDate");if(!a)return;
+  a.textContent=d.toLocaleTimeString(loc(),{hour:"numeric",minute:"2-digit"});
+  b.textContent=d.toLocaleDateString(loc(),{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+setInterval(tickClock,1000);
+function base(){return lastMsgAt||Date.now()}
+function clockOfUp(sec){return clockAt(base()-(S.uptime-sec)*1000)}
+function pname(){var x=S||RAW;return x&&x.name?x.name:t("patient")}
+function evTime(e){return e.at?clockAt(e.at):clockOfUp(e.t)}
+
+/* =================== استقبال البيانات + العدادات المحلية =================== */
+// لو الجهاز يرسل still/stable ثابتة (مثل 10 دائماً) نحسب العدادات هنا من الحركة والضغط
+function newLT(now,j){return {lastMove:now-Math.min(+j.still||0,3600)*1000,lastP:now-Math.min(+j.stable||0,3600)*1000,refP:null,refLoad:null,alert:false,muted:false,count:0,events:[]}}
+function resetTrack(){RAW=prevRaw=null;S=null;devTimersAt=0;staticCnt=0;pHist=[];moveEp=null;motionUntil=0;motionEvents=[];goodEvents=[];LT=null;ignoreMotionUntil=0;
+  var g=$("gToast");if(g)g.hidden=true}
+function topZone(j){var tp=null;((j&&j.zones)||[]).forEach(function(z){if(!tp||(+z.pct||0)>(+tp.pct||0))tp=z});return tp}
+function devTimersLive(){return mode==="demo"||Date.now()-devTimersAt<8000}
+function ingest(j){
+  if(!j||typeof j!=="object")return;
+  var now=Date.now(), p=prevRaw; RAW=j;
+  var reboot=!!(p&&typeof j.uptime==="number"&&typeof p.uptime==="number"&&j.uptime<p.uptime);
+  if(!LT||reboot){LT=newLT(now,j);staticCnt=0}
+  // هل عدادات الجهاز تزيد فعلاً؟
+  if(p&&!reboot){var ds=(+j.still)-(+p.still), dt=(+j.stable)-(+p.stable);
+    if((ds>=1&&ds<=6)||(dt>=1&&dt<=6)){devTimersAt=now;staticCnt=0}else if(ds<=0&&dt<=0)staticCnt++}
+  var tz=topZone(j), pct=tz?Math.min(100,+tz.pct||0):0;
+  var minP=(j.th&&+j.th.min)||3;
+  var loaded=!!j.loaded||!!(tz&&tz.lvl>=1&&pct>=minP);
+  // الضغط صفر أو منخفض (أو ما فيه مريض على السرير)
+  var pressureLow=!loaded||pct<=minP||(tz&&tz.lvl<=1);
+
+  // ثبات الضغط: تغيّر 8 نقاط أو أكثر = الضغط تغيّر
+  var dP=(j.th&&+j.th.delta)||8;
+  var pressureChanged=LT.refP!==null&&(Math.abs(pct-LT.refP)>=dP||loaded!==LT.refLoad);
+  var pressureDropped=LT.refP!==null&&(LT.refP-pct>=dP);
+
+  // كشف الحركة: moving=true أو عداد السكون رجع صفر
+  var dropped=!!(p&&!reboot&&typeof j.still==="number"&&typeof p.still==="number"&&j.still<p.still&&j.still<=2);
+  var isMoving=j.motionOk!==false&&(j.moving===true||dropped)&&now>=ignoreMotionUntil;
+
+  // المنطق المطلوب: تصفير العدادَين معاً (الحركة والضغط) في الحالات التالية:
+  // 1) إذا حساس الضغط صار 0 أو منخفض (أو خفّ/اختفى الضغط)
+  // 2) إذا كان فيه حركة
+  // 3) إذا الاثنين مع بعض (انخفض الضغط والحركة موجودة)
+  if(pressureLow||pressureDropped||pressureChanged||isMoving){
+    LT.lastMove=now;
+    LT.lastP=now;
+    LT.refP=pct;
+    LT.refLoad=loaded;
+  } else if(LT.refP===null){
+    LT.refP=pct;
+    LT.refLoad=loaded;
+  }
+
+  var pBefore=pHist.reduce(function(m,h){return now-h.at<=6000?Math.max(m,h.p):m},pct);
+  pHist.push({at:now,p:pct});while(pHist.length&&now-pHist[0].at>12000)pHist.shift();
+  if(isMoving){
+    if(now>=motionUntil){motionAt=now;onMotionStart();
+      if(!moveEp||moveEp.done||now-(moveEp.last||moveEp.at)>GOOD_WIN_MS)moveEp={at:now,pMax:pBefore,done:false}}
+    motionUntil=now+MOTION_HOLD_MS; if(moveEp)moveEp.last=now;
+  }
+  // تغيير وضعية ناجح = تحرّك + الضغط خفّ
+  if(moveEp&&!moveEp.done){
+    if(now-(moveEp.last||moveEp.at)>GOOD_WIN_MS)moveEp=null;
+    else{moveEp.pMax=Math.max(moveEp.pMax,pct);
+      // ننتظر الحركة تهدأ 1.5 ث عشان نعرض الضغط النهائي
+      if(moveEp.pMax-pct>=GOOD_DROP&&j.moving!==true&&now-(moveEp.last||moveEp.at)>=1500){moveEp.done=true;onGoodReposition(Math.round(moveEp.pMax),Math.round(pct))}}
+  }
+  prevRaw=j;
+}
+function derive(){
+  var j=RAW; if(!j)return null;
+  var now=Date.now(), o=Object.assign({},j), tz=topZone(j);
+  var minP=(j.th&&+j.th.min)||3;
+  var pct=tz?Math.min(100,+tz.pct||0):0;
+  var loaded=!!j.loaded||!!(tz&&tz.lvl>=1&&pct>=minP);
+  var pressureLow=!loaded||pct<=minP||(tz&&tz.lvl<=1);
+  var isMoving=(j.moving===true)||now<motionUntil;
+  var dP=(j.th&&+j.th.delta)||8;
+  var pressureDropped=LT&&LT.refP!==null&&(LT.refP-pct>=dP);
+  var devStableReset=devTimersLive()&&(+j.stable<=0);
+
+  o.stillReq=+j.stillReq||120; o.stableReq=+j.stableReq||120;
+  o.loaded=loaded;
+
+  if(!devTimersLive()&&LT&&staticCnt>=3){
+    o.still=Math.floor((now-LT.lastMove)/1000);
+    o.stable=Math.floor((now-LT.lastP)/1000);
+    o._local=true;
+  } else {
+    o.still=+j.still||0;
+    o.stable=+j.stable||0;
+  }
+
+  // تصفير العدادَين معاً فوراً إذا تحقق أي من شروط المستخدم:
+  // 1) الضغط 0 أو منخفض
+  // 2) وجود حركة
+  // 3) انخفاض الضغط (خف الضغط) مع أو بدون حركة
+  // 4) تصفير عداد ثبات الضغط من الجهاز
+  if(pressureLow||isMoving||pressureDropped||devStableReset){
+    o.still=0;
+    o.stable=0;
+    if(LT){LT.lastMove=now; LT.lastP=now;}
+  }
+
+  var cond=o.loaded&&(j.motionOk===false||o.still>=o.stillReq)&&o.stable>=o.stableReq;
+  if(cond&&!LT.alert){LT.alert=true;LT.muted=false;LT.count++;LT.events.unshift({type:1,at:now})}
+  if(!cond&&LT.alert){LT.alert=false;LT.events.unshift({type:2,at:now})}
+  if(LT.events.length>30)LT.events.length=30;
+  o.alert=LT.alert||!!j.alert; o.muted=LT.muted||!!j.muted; o.alerts=LT.count+(+j.alerts||0);
+  o.events=(j.events&&j.events.length)?LT.events.concat(j.events):LT.events;
+  return o;
+}
+function initials(n){var w=String(n||"").trim().split(/\s+/).filter(function(x){return /^[A-Za-z\u0600-\u06FF]/.test(x)});return w.slice(0,2).map(function(x){return x[0]}).join("").toUpperCase()}
+
+/* =================== رسم الجسم =================== */
+(function drawBody(){
+  var shapes='<ellipse cx="100" cy="37" rx="21" ry="26"/><path d="'+ARM_R+'"/><path d="'+ARM_L+'"/><path d="'+BODY+'"/>';
+  $("figOutline").innerHTML='<g fill="var(--body-line)" stroke="var(--body-line)" stroke-width="3.2" stroke-linejoin="round">'+shapes+'</g>';
+  $("figFill").innerHTML='<g fill="url(#bodyGrad)">'+shapes+'</g>'+
+    '<g fill="none" stroke="var(--body-line)" stroke-linecap="round" opacity=".55">'+
+    '<path d="M100 86 V226" stroke-width="1.1" stroke-dasharray="1.5 4"/>'+
+    '<path d="M83 100 Q89 124 98 132 M117 100 Q111 124 102 132" stroke-width="1"/>'+
+    '<path d="M86 262 Q93 270 100 268 Q107 270 114 262" stroke-width="1"/></g>';
+  $("bodyClip").innerHTML=shapes;
+  var NS="http://www.w3.org/2000/svg";
+  Object.keys(ZONES).forEach(function(id){
+    var p=ZONES[id];
+    var b=document.createElementNS(NS,"circle");b.setAttribute("class","blob");b.setAttribute("cx",p[0]);b.setAttribute("cy",p[1]);b.setAttribute("r",0);
+    b.setAttribute("filter","url(#soft)");b.id="blob-"+id;$("heat").appendChild(b);
+    var g=document.createElementNS(NS,"g");g.setAttribute("class","zone");g.dataset.id=id;g.setAttribute("tabindex","0");g.setAttribute("role","button");
+    g.innerHTML='<circle class="na" cx="'+p[0]+'" cy="'+p[1]+'" r="6.5"/><circle class="ring" cx="'+p[0]+'" cy="'+p[1]+'" r="15"/><circle class="hit" cx="'+p[0]+'" cy="'+p[1]+'" r="20"/>';
+    function sel(ev){ev.stopPropagation();selZone=selZone===id?null:id;render()}
+    g.addEventListener("click",sel);
+    g.addEventListener("keydown",function(ev){if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();sel(ev)}});
+    $("zones").appendChild(g);
+  });
+})();
+document.addEventListener("click",function(){if(selZone){selZone=null;render()}});
+
+/* =================== التنقل واللغة =================== */
+document.querySelectorAll(".nav button,[data-goto]").forEach(function(b){b.addEventListener("click",function(e){e.stopPropagation();view=b.dataset.view||b.dataset.goto;applyView();window.scrollTo(0,0)})});
+document.querySelectorAll("[data-lang]").forEach(function(b){b.onclick=function(){setLang(b.dataset.lang)}});
+$("langM").onclick=function(){setLang(lang==="ar"?"en":"ar")};
+function setLang(l){lang=l;store("pc_lang",l);applyLang()}
+function applyView(){
+  ["dash","alerts","system","settings"].forEach(function(v){$("v-"+v).hidden=v!==view});
+  document.querySelectorAll(".nav button").forEach(function(b){var on=b.dataset.view===view;b.classList.toggle("on",on);b.setAttribute("aria-current",on?"page":"false")});
+  $("viewTitle").textContent=t({dash:"navDash",alerts:"navAlerts",system:"navSystem",settings:"navSettings"}[view]);
+  if(view==="system")renderSystem();
+}
+function applyLang(){
+  var h=document.documentElement; h.lang=lang; h.dir=lang==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-i18n]").forEach(function(el){el.textContent=t(el.getAttribute("data-i18n"))});
+  document.querySelectorAll("[data-lang]").forEach(function(b){b.classList.toggle("on",b.dataset.lang===lang);b.setAttribute("aria-pressed",b.dataset.lang===lang)});
+
+  document.querySelectorAll("[data-i18n-n]").forEach(function(el){el.textContent=t(el.getAttribute("data-i18n-n"))});
+  applyView(); fillZoneSel(); render(); renderConn(); tickClock();
+}
+
+/* =================== حساب الحالة =================== */
+function calc(x){
+  var s=x||S, mOk=s.motionOk!==false;
+  var stillLeft=mOk?s.stillReq-s.still:0, stableLeft=s.stableReq-s.stable;
+  var left=Math.max(stillLeft,stableLeft);
+  var since=mOk?Math.min(s.still,s.stable):s.stable;
+  var over=s.alert?Math.max(0,Math.min(mOk?s.still-s.stillReq:Infinity,s.stable-s.stableReq)):0;
+  var req=Math.max(mOk?s.stillReq:0,s.stableReq);
+  var st=s.alert?"over":!s.loaded?"empty":(left<=Math.max(30,req*.25)?"due":"ok");
+  return {left:Math.max(0,left),since:since,over:over,st:st};
+}
+function setPill(el,st){el.className=el.className.replace(/p-\w+/,PILL[st][0]);el.querySelector("span").textContent=t(PILL[st][1])}
+function alertCard(cls,icon,title,text,time,extra){
+  return '<div class="al '+cls+'"><span class="ai"><svg class="i"><use href="#'+icon+'"/></svg></span><b>'+esc(title)+'</b><time>'+esc(time||"")+'</time><p>'+esc(text)+'</p>'+(extra||"")+'</div>'}
+function eventCards(list,compact){
+  if(!list||!list.length)return compact?"":'<div class="empty"><svg class="i"><use href="#i-bell"/></svg>'+t("noEvents")+'</div>';
+  var cls=compact?" ev":"";
+  return list.map(function(e){
+    if(e.type===1)return alertCard("a-over"+cls,"i-alert",t("evAlert"),t("evAlertP"),evTime(e));
+    if(e.type===3)return alertCard("a-ok"+cls,"i-check",t("evResp"),t("evRespP"),evTime(e));
+    if(e.type===4)return alertCard("a-ok"+cls,"i-check",t("evMotion"),t("evMotionP"),evTime(e));
+    if(e.type===5)return alertCard("a-ok"+cls,"i-check",t("evGood"),t("evGoodP",{a:e.a,b:e.b}),evTime(e));
+    return alertCard("a-ok"+cls,"i-check",t("evMove"),t("evMoveP"),evTime(e));
+  }).join("");
+}
+function bar(k,v,req){var f=req?Math.min(1,v/req):0,el=$(k+"Bar");el.style.width=(f*100)+"%";
+  el.style.background=f>=1?"var(--red)":f>=.75?"var(--orange)":"var(--teal-2)";
+  $(k+"Txt").textContent=req?mmss(v)+" / "+mmss(req):"--";$(k+"Track").setAttribute("aria-valuenow",Math.round(f*100))}
+
+/* =================== العرض =================== */
+var USER_ICO='<svg class="i"><use href="#i-user"/></svg>';
+function render(){
+  renderConn();
+  if(RAW)S=derive();
+  var noData=!S;
+  $("pName").classList.toggle("sk",noData);
+  if(noData){
+    setPill($("pStatus"),"wait");
+    $("avatar").className="avatar rk-wait";$("avatar").innerHTML=USER_ICO;
+    $("pName").textContent="--";$("pRoom").textContent="";
+    $("nextIn").textContent="--";$("nextIn").className="";$("nextAt").textContent="";
+    bar("still",0,0);bar("stable",0,0);$("motionState").innerHTML=$("pressState").innerHTML="";
+    $("sensList").innerHTML='<li class="none">'+t("noData")+'</li>';
+    $("liveAlerts").innerHTML=alertCard("a-empty","i-plug",t("waiting"),mode?"":t("mNone"),"");
+    $("fullLog").innerHTML=eventCards([]);
+    $("abar").hidden=true;stopAlertFx();
+    Object.keys(ZONES).forEach(function(id){$("blob-"+id).setAttribute("r",0)});
+    return;
+  }
+  var c=calc(), b=base();
+  // الحركة = أخضر (جيد). الكشف نفسه في ingest()
+  var nowMs=Date.now(), motionActive=nowMs<motionUntil;
+  if(motionActive&&c.st!=="over")c.st="motion";
+
+  $("pName").textContent=pname();
+  $("pRoom").textContent=S.room?t("roomT",{r:S.room}):"";
+  var ini=initials(S.name);$("avatar").innerHTML=ini?esc(ini):USER_ICO;
+  $("avatar").className="avatar rk-"+c.st;
+  setPill($("pStatus"),c.st);
+
+  var nx=$("nextIn"),na=$("nextAt");
+  if(!S.loaded){nx.textContent="--";nx.className="";na.textContent=t("noLoad")}
+  else if(S.alert){nx.textContent=t("nowOver",{m:human(c.over)});nx.className="c-over";na.textContent=""}
+  else{nx.textContent=t("inT",{m:human(c.left)});nx.className=c.st==="due"?"c-due":"c-ok";na.textContent=t("atT",{h:clockAt(b+c.left*1000)})}
+
+  bar("still",S.still,S.stillReq); bar("stable",S.stable,S.stableReq);
+  var ms=$("motionState");
+  if(S.motionOk===false){ms.innerHTML='<i></i>'+esc(t("motionErr"));ms.className="state c-over"}
+  else if(motionActive||S.moving){ms.innerHTML='<i></i>'+esc(t("motionNow"));ms.className="state c-ok"}
+  else{ms.innerHTML='<i></i>'+esc(t("still"));ms.className="state c-muted"}
+  var ps=$("pressState");
+  if(!S.loaded){ps.innerHTML='<i></i>'+esc(t("noLoad"));ps.className="state c-muted"}
+  else if(S.stable<3){ps.innerHTML='<i></i>'+esc(t("pChanging"));ps.className="state c-ok"}
+  else{ps.innerHTML='<i></i>'+esc(t("pStable"));ps.className="state c-muted"}
+
+  // الحساسات + الخريطة
+  var zs=S.zones||[], byId={};
+  // مكان الحساس: لو اخترت منطقة من الإعدادات والجهاز يرسل حساس واحد، نعرضه فيها
+  if(zoneOverride&&ZONES[zoneOverride]&&zs.length===1)zs=[Object.assign({},zs[0],{id:zoneOverride})];
+  zs.forEach(function(z){byId[z.id]=z});
+  // الضغط الآن (أعلى حساس)
+  var top=zs.slice().sort(function(x,y){return (+y.pct||0)-(+x.pct||0)})[0], lvC=["var(--gray)","var(--green)","var(--orange)","var(--red)"];
+  if(top){var tp=Math.min(100,+top.pct||0);
+    $("nowPVal").textContent=tp.toFixed(0)+"%";$("nowPVal").style.color=lvC[top.lvl]||"";
+    $("nowPLvl").textContent=t("lvl"+top.lvl)+" · "+t("z_"+top.id);$("nowPLvl").className="lv"+top.lvl;
+    $("nowPBar").style.width=tp+"%";$("nowPBar").style.background=lvC[top.lvl]||"var(--gray)";
+  }else{$("nowPVal").textContent="--";$("nowPVal").style.color="";$("nowPLvl").textContent=t("noSensors");$("nowPLvl").className="";$("nowPBar").style.width="0"}
+  $("figwrap").classList.toggle("moving",motionActive);
+  $("mvTag").hidden=!motionActive;$("mvTag").textContent=t("mvTag");
+  $("sensList").innerHTML=zs.length?zs.slice().sort(function(x,y){return y.pct-x.pct}).map(function(z){var p=+z.pct||0;
+    return '<li title="'+esc(t("lvl"+z.lvl))+'"><span class="dot d'+z.lvl+'"></span><span class="nm">'+esc(t("z_"+z.id))+'</span><b class="num lv'+z.lvl+'">'+p.toFixed(0)+'%</b>'+
+      '<span class="sr-only">'+esc(t("lvl"+z.lvl))+'</span></li>'}).join("")
+    :'<li class="none">'+t("noSensors")+'</li>';
+  Object.keys(ZONES).forEach(function(id){
+    var g=document.querySelector('.zone[data-id="'+id+'"]'), z=byId[id], bl=$("blob-"+id);
+    g.setAttribute("class","zone"+(z?" l"+z.lvl:" off")+(selZone===id?" sel":""));
+    g.querySelector(".na").style.display=z?"none":"";
+    g.setAttribute("aria-label",t("z_"+id)+": "+(z?(+z.pct).toFixed(0)+"% "+t("lvl"+z.lvl):t("na")));
+    if(z){var p=Math.min(100,+z.pct||0);bl.setAttribute("r",z.lvl?(17+p*.2).toFixed(1):9);bl.setAttribute("fill","url(#g"+z.lvl+")")}
+    else bl.setAttribute("r",0);
+    bl.style.animation=z&&z.lvl===3?"throb 1.8s ease-in-out infinite":"";
+  });
+  var tip=$("tip");
+  if(selZone){
+    var z=byId[selZone], svg=$("body"), r=svg.getBoundingClientRect(), w=$("figwrap").getBoundingClientRect(), p=ZONES[selZone], sc=r.width/VB.w;
+    tip.style.left=(r.left-w.left+(p[0]-VB.x)*sc)+"px"; tip.style.top=(r.top-w.top+(p[1]-VB.y)*sc-8)+"px";
+    tip.textContent=t("z_"+selZone)+" — "+(z?(+z.pct).toFixed(0)+"% · "+t("lvl"+z.lvl):t("na"));
+    tip.hidden=false;
+  } else tip.hidden=true;
+
+  // التنبيهات
+  var ev=S.events||[], live;
+  if(c.st==="over")live=alertCard("a-over pulse-card","i-alert",t("liveOver"),pname()+" · "+t("liveOverP",{m:human(c.over)}),"",
+      '<div class="btns">'+(S.muted?'':'<button data-act="ack">'+t("mute")+'</button>')+'<button class="solid" data-act="reset">'+t("repositioned")+'</button></div>');
+  else if(c.st==="motion")live=alertCard("a-ok pulse-ok","i-check",t("motionTitle"),t("motionMsg",{n:pname(),h:clockAt(motionAt)}),"");
+  else if(c.st==="due")live=alertCard("a-due","i-bell",t("liveDue"),pname()+" · "+t("liveDueP",{m:human(c.left)}),"");
+  else if(c.st==="ok")live=alertCard("a-ok","i-check",t("liveOk"),t("liveOkP",{m:human(c.left)}),"");
+  else live=alertCard("a-empty","i-user",t("liveEmpty"),t("liveEmptyP"),"");
+  var allEv=ev.concat(goodEvents,motionEvents.map(function(m){return {type:4,at:m.at}}))
+    .sort(function(a,b){return (b.at||clockMs(b.t))-(a.at||clockMs(a.t))});
+  $("liveAlerts").innerHTML=live+eventCards(allEv.slice(0,3),true);
+  $("fullLog").innerHTML=eventCards(allEv);
+  $("cntPill").querySelector("span").textContent=S.alerts||0;
+  var nc=$("navCnt"); nc.hidden=!S.alerts; nc.textContent=S.alerts>99?"99+":S.alerts;
+
+  $("abar").hidden=!S.alert;
+  if(S.alert){$("abarTitle").textContent=t("alertTitle");$("abarMsg").textContent=t("abarMsg",{n:pname(),m:human(S.still)});$("abarBtn").textContent=t("repositioned")}
+  if(S.alert&&!prevAlert)onAlertStart();
+  if(!S.alert&&prevAlert)stopAlertFx();
+  prevAlert=!!S.alert;
+  updateBeep(); updateTitle();
+}
+function clockMs(sec){return S&&typeof S.uptime==="number"?base()-(S.uptime-sec)*1000:Date.now()}
+function onMotionStart(){   // حركة = جيد: بدون صوت إنذار
+  motionEvents.unshift({at:motionAt}); if(motionEvents.length>20)motionEvents.pop();
+  $("live").textContent=t("motionTitle");
+}
+function chime(){if(!actx)return;try{var now=actx.currentTime;[[0,659],[.16,880],[.32,1047]].forEach(function(n){
+  var o=actx.createOscillator(),g=actx.createGain();o.type="triangle";o.frequency.value=n[1];
+  g.gain.setValueAtTime(0,now+n[0]);g.gain.linearRampToValueAtTime(.22,now+n[0]+.02);g.gain.exponentialRampToValueAtTime(.001,now+n[0]+.45);
+  o.connect(g);g.connect(actx.destination);o.start(now+n[0]);o.stop(now+n[0]+.5)})}catch(e){}}
+// إشعار أخضر: المريض تحرّك والضغط خفّ
+function onGoodReposition(a,b,who){
+  var n=who||pname(), now=Date.now();
+  if(!who){goodEvents.unshift({type:5,at:now,a:a,b:b});if(goodEvents.length>20)goodEvents.pop()}
+  $("gtTitle").textContent=t("goodTitle"); $("gtMsg").textContent=t("goodMsg",{n:n,a:a,b:b});
+  var g=$("gToast"); g.hidden=false; g.style.animation="none"; void g.offsetWidth; g.style.animation="";
+  clearTimeout(goodTimer); goodTimer=setTimeout(function(){g.hidden=true},8000);
+  $("live").textContent=t("goodTitle")+" — "+t("goodMsg",{n:n,a:a,b:b});
+  if(soundOn)chime();
+  try{if("Notification" in window&&Notification.permission==="granted")new Notification(t("goodTitle"),{body:t("goodMsg",{n:n,a:a,b:b}),tag:"athar-good",renotify:true})}catch(e){}
+}
+$("gtX").onclick=function(e){e.stopPropagation();$("gToast").hidden=true};
+function gotMsg(){var n=Date.now();lastMsgAt=n;msgTimes.push(n);while(msgTimes.length&&n-msgTimes[0]>60000)msgTimes.shift()}
+function isFresh(){return !!lastMsgAt&&Date.now()-lastMsgAt<=STALE_MS&&(mode!=="cloud"||(brokerState==="connected"&&devOnline!==false))}
+
+/* =================== صفحة النظام (مسار البيانات) =================== */
+var PIPE=[["sens","i-sensor"],["esp","i-chip"],["net","i-globe"],["broker","i-server"],["dash","i-monitor"]];
+(function buildPipe(){var h="";PIPE.forEach(function(n,i){
+  if(i)h+='<div class="pl" id="pl-'+i+'" aria-hidden="true"></div>';
+  h+='<div class="pn" id="pn-'+n[0]+'"><span class="pn-i"><svg class="i"><use href="#'+n[1]+'"/></svg></span><div class="pn-t"><b data-i18n-n="n_'+n[0]+'"></b><small id="ps-'+n[0]+'"></small></div><i class="led" id="pd-'+n[0]+'"></i></div>'});
+  $("pipe").innerHTML=h})();
+function modeTxt(){return mode==="local"?t("mLocal"):mode==="cloud"?t("mCloud"):mode==="demo"?t("mDemo"):t("mNone")}
+function renderSystem(){
+  if(view!=="system")return;
+  var fresh=isFresh(), age=lastMsgAt?Date.now()-lastMsgAt:Infinity, rate=msgTimes.filter(function(x){return Date.now()-x<60000}).length;
+  var st={}, sub={}, ln={};
+  function set(id,s,x){st[id]=s;sub[id]=x}
+  if(!S||!mode)set("sens","idle",t("s_wait"));
+  else set("sens",S.motionOk===false?"warn":"ok",t("s_sens",{m:S.motionOk===false?"✕":"✓",n:(S.zones||[]).length}));
+  if(mode==="demo")set("esp","ok",t("s_sim"));
+  else if(!mode)set("esp","idle",t("s_wait"));
+  else if(mode==="cloud"&&devOnline===false)set("esp","bad",t("s_devOff"));
+  else if(S&&fresh)set("esp","ok",t("s_devOn"));
+  else set("esp","warn",t("s_wait"));
+  if(mode==="cloud"){
+    if(devOnline===false)set("net","bad",t("s_noNet"));else if(fresh)set("net","ok",t("s_sending"));else set("net","warn",t("s_wait"));
+    if(brokerState==="connected")set("broker","ok",t("s_brOk"));else if(brokerState==="connecting")set("broker","warn",t("s_brConn"));else set("broker","bad",t("s_brBad"));
+  }else if(mode==="local"){set("net","idle",t("s_unused"));set("broker","idle",t("s_unused"))}
+  else if(mode==="demo"){set("net","idle",t("s_sim"));set("broker","idle",t("s_sim"))}
+  else{set("net","idle",t("s_wait"));set("broker","idle",t("s_wait"))}
+  set("dash",!mode?"idle":fresh?"ok":"warn",t("s_dash",{r:rate}));
+  PIPE.forEach(function(n){var id=n[0];$("pn-"+id).className="pn "+st[id];$("ps-"+id).textContent=sub[id];
+    $("pd-"+id).className="led "+({ok:"ok",warn:"warn",bad:"bad"}[st[id]]||"")});
+  var back=Date.now()<backUntil;
+  if(mode==="cloud"){
+    ln[1]=fresh?"flow":S&&S.motionOk===false?"bad":"";
+    ln[2]=devOnline===false?"bad":back?"back":fresh?"flow":"";
+    ln[3]=devOnline===false?"bad":back?"back":fresh?"flow":"";
+    ln[4]=brokerState!=="connected"&&brokerState!=="connecting"?"bad":back?"back":fresh?"flow":"";
+  }else if(mode==="local"||mode==="demo"){ln[1]=fresh?"flow":"";ln[2]=ln[3]=ln[4]=""}
+  for(var i=1;i<=4;i++)$("pl-"+i).className="pl "+(ln[i]||"");
+  $("sysSub").textContent=mode==="local"?t("sysLocal"):mode==="cloud"?t("sysCloud"):mode==="demo"?t("sysDemo"):t("sysNone");
+  var kv=[["k_dev",(mode==="cloud"?devId:(S&&S.id))||"--",1],["k_mode",modeTxt()],["k_last",lastMsgAt?updatedTxt(age):"--"],["k_rate",String(rate)]];
+  $("sysKv").innerHTML=kv.map(function(k){return '<div><span>'+esc(t(k[0]))+'</span><b class="'+(k[2]?"ltr":"")+'">'+esc(k[1])+'</b></div>'}).join("");
+}
+
+/* =================== حالة الاتصال =================== */
+function renderConn(){
+  var age=lastMsgAt?(Date.now()-lastMsgAt):Infinity, stale=age>STALE_MS;
+  var led="", txt="", ban=null, banCls="info", banBtn=null;
+  if(mode==="demo"){led="warn";txt=t("mDemo");ban=t("bDemo");banBtn=["exitDemo",function(){exitDemo()}]}
+  else if(mode==="local"){
+    if(stale&&localFails>=2){led="bad";txt=t("offline");ban=t("bLocalLost");banCls="bad"}
+    else{led="ok";txt=t("online")}
+  }else if(mode==="cloud"){
+    if(brokerState==="connecting"&&!S){led="warn pulse";txt=t("connecting");
+      ban=t("bTrying",{u:tryingUrl||brokerUrl})+(brokerErr?"  •  "+brokerErr:"");banCls=brokerErr?"warn":"info"}
+    else if(brokerState!=="connected"){led="bad";txt=t("srvDown");ban=(brokerErr||t("bBroker"))+"  •  "+t("bAutoRetry");banCls="bad";banBtn=["retry",function(){startCloud(devId,brokerUrl)}]}
+    else if(devOnline===false){led="bad";txt=t("offline");ban=t("bOffline");banCls="warn"}
+    else if(!S){led="warn pulse";txt=t("waiting");ban=t("bWaitTopic",{u:activeBroker,id:devId,tp:TOPIC_ROOT+devId+"/status"})}
+    else if(stale){led="warn";txt=t("online")+" · "+updatedTxt(age);ban=t("bStale",{s:human(age/1000)});banCls="warn"}
+    else{led="ok";txt=t("online")}
+  }else{led="";txt=t("mNone")}
+  $("connLed").className="led "+led; $("connTxt").textContent=txt;
+  $("connChip").setAttribute("aria-label",txt);
+  $("sideLed").className="led "+led; $("sideMode").textContent=modeTxt();
+  $("sideDev").textContent=mode==="cloud"?devId:(S&&S.id&&mode!=="demo"?S.id:"");
+  renderSystem();
+  var bn=$("banner");
+  if(ban){bn.hidden=false;bn.className="banner "+banCls;$("bannerTxt").textContent=ban;
+    var bb=$("bannerBtn");if(banBtn){bb.hidden=false;bb.textContent=t(banBtn[0]);bb.onclick=banBtn[1]}else bb.hidden=true}
+  else bn.hidden=true;
+  // الإعدادات
+  $("setLed").className="led "+led; $("setState").textContent=mode?modeTxt()+(mode!=="demo"?" · "+txt:""):t("mNone");
+  $("localNote").hidden=mode!=="local";
+  $("connForm").hidden=mode==="local";
+  $("disconnectBtn").hidden=mode!=="cloud";
+  $("demoBtn2").hidden=mode==="demo";
+  $("devCard").hidden=mode!=="local";
+}
+function updatedTxt(age){return age<1500?t("now"):t("updated",{s:human(age/1000)})}
+
+/* =================== الصوت والتنبيه =================== */
+function unlockAudio(){try{if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)();if(actx.state==="suspended")actx.resume()}catch(e){}}
+document.addEventListener("pointerdown",unlockAudio,{passive:true});
+document.addEventListener("keydown",unlockAudio);
+function beep(){if(!actx)return;try{var now=actx.currentTime;[0,.32].forEach(function(d,i){
+  var o=actx.createOscillator(),g=actx.createGain();o.type="sine";o.frequency.value=i?988:880;
+  g.gain.setValueAtTime(0,now+d);g.gain.linearRampToValueAtTime(.35,now+d+.02);g.gain.linearRampToValueAtTime(0,now+d+.24);
+  o.connect(g);g.connect(actx.destination);o.start(now+d);o.stop(now+d+.28)})}catch(e){}}
+function updateBeep(){var want=S&&S.alert&&!S.muted&&soundOn;
+  if(want&&!beepTimer){beep();beepTimer=setInterval(beep,1500)}
+  if(!want&&beepTimer){clearInterval(beepTimer);beepTimer=null}}
+function updateTitle(){
+  if(S&&S.alert){if(!titleTimer){var f=0;titleTimer=setInterval(function(){f^=1;document.title=f?"⚠ "+t("alertTitle"):pname()+" · ATHAR"},1000)}}
+  else{if(titleTimer){clearInterval(titleTimer);titleTimer=null}document.title=BRAND_TITLE}
+}
+function onAlertStart(){
+  $("live").textContent=t("srAlert",{n:pname()});
+  try{if(navigator.vibrate&&navigator.userActivation&&navigator.userActivation.hasBeenActive)navigator.vibrate([500,200,500,200,500])}catch(e){}
+  try{if("Notification" in window&&Notification.permission==="granted")new Notification(t("alertTitle"),{body:t("abarMsg",{n:pname(),m:human(S.still)}),tag:"positioncare",renotify:true})}catch(e){}
+}
+function stopAlertFx(){if(beepTimer){clearInterval(beepTimer);beepTimer=null}if(titleTimer){clearInterval(titleTimer);titleTimer=null;document.title=BRAND_TITLE}}
+function paintSound(){$("soundBtn").classList.toggle("off",!soundOn);$("soundBtn").setAttribute("aria-pressed",soundOn);$("soundChk").checked=soundOn}
+function setSound(on){soundOn=on;store("pc_sound",soundOn?"1":"0");paintSound();unlockAudio();updateBeep()}
+$("soundBtn").onclick=function(){setSound(!soundOn)};
+$("soundChk").onchange=function(){setSound(this.checked)};
+paintSound();
+$("notifRow").hidden=!("Notification" in window);
+$("notifBtn").onclick=function(){var m=$("notifMsg");
+  if(!("Notification" in window)||!window.isSecureContext){m.textContent=t("notifNA");m.className="msg c-due";return}
+  Notification.requestPermission().then(function(p){m.textContent=p==="granted"?t("notifOn"):t("notifDenied");m.className="msg "+(p==="granted"?"c-ok":"c-over")})};
+$("testBtn").onclick=function(){unlockAudio();setTimeout(beep,60)};
+function fillZoneSel(){var sel=$("zoneSel");if(!sel)return;
+  sel.innerHTML='<option value="">'+esc(t("zAuto"))+'</option>'+Object.keys(ZONES).map(function(z){return '<option value="'+z+'">'+esc(t("z_"+z))+'</option>'}).join("");
+  sel.value=zoneOverride}
+$("zoneSel").onchange=function(){zoneOverride=this.value;store("pc_zone",zoneOverride||null);render()};
+
+/* =================== الأوامر =================== */
+function command(cmd){
+  var nowC=Date.now();
+  if(cmd==="reset"){ignoreMotionUntil=nowC+4000;   // تصفير العداد من الزر مو حركة
+    if(LT){LT.lastMove=LT.lastP=nowC;LT.alert=false;LT.events.unshift({type:3,at:nowC});render()}}
+  if(cmd==="ack"&&LT){LT.muted=true;render()}
+  backUntil=Date.now()+2200; renderSystem();
+  if(mode==="demo")return Promise.resolve(demo.cmd(cmd)).then(tick);
+  if(mode==="local")return post(cmd==="ack"?"/api/ack":"/api/reset").then(pollLocal);
+  if(mode==="cloud"&&client){client.publish(TOPIC_ROOT+devId+"/cmd",JSON.stringify({cmd:cmd}),{qos:0,retain:false});
+    if(cmd==="ack"&&RAW){RAW.muted=true;render()}}
+  return Promise.resolve();
+}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-act]");if(!b)return;e.stopPropagation();command(b.dataset.act)});
+$("abarBtn").onclick=function(){command("reset")};
+
+/* =================== المصدر 1: الجهاز مباشرة (ESP32) =================== */
+function fetchJ(path,opts,ms){
+  var ctl=window.AbortController?new AbortController():null, tm=setTimeout(function(){ctl&&ctl.abort()},ms||3500);
+  return fetch(path,Object.assign({cache:"no-store",signal:ctl?ctl.signal:undefined},opts||{})).then(function(r){clearTimeout(tm);
+    return r.json().then(function(j){if(!r.ok)throw j;return j})});
+}
+function post(path,data){return fetchJ(path,{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(data||{}).toString()})}
+function pollLocal(){
+  return fetchJ("/api/status").then(function(j){ingest(j);gotMsg();localFails=0;render()})
+    .catch(function(){localFails++;renderConn()});
+}
+function startLocal(first){mode="local";resetTrack();ingest(first);gotMsg();clearInterval(pollTimer);pollTimer=setInterval(pollLocal,1000);loadSettings();render()}
+
+/* =================== المصدر 2: السحابة (MQTT) =================== */
+var mqttLoading=null;
+function loadMqtt(){
+  if(window.mqtt)return Promise.resolve(window.mqtt);
+  if(mqttLoading)return mqttLoading;
+  mqttLoading=new Promise(function(res,rej){var i=0;(function next(){
+    if(i>=MQTT_URLS.length){mqttLoading=null;return rej(new Error("mqtt.js"))}
+    var s=document.createElement("script");s.src=MQTT_URLS[i++];s.async=true;
+    s.onload=function(){window.mqtt?res(window.mqtt):next()};s.onerror=function(){s.remove();next()};document.head.appendChild(s)})()});
+  return mqttLoading;
+}
+function stopCloud(){
+  clearTimeout(tryTimer);tryTimer=null;cloudGen++;
+  if(client){try{client.removeAllListeners();client.end(true)}catch(e){}client=null}
+  brokerState="idle";activeBroker="";tryingUrl="";
+}
+// قائمة الخوادم: الأساسي wss:8884 ثم البديل ws:8000
+// (المتصفح يمنع ws:// إذا الصفحة نفسها https، فنتجاوز البديل في هالحالة)
+function brokerCandidates(url){
+  var list=[url||DEFAULT_BROKER];
+  if(list[0]===DEFAULT_BROKER&&location.protocol!=="https:")list.push(FALLBACK_BROKER);
+  return list;
+}
+function startCloud(id,url){
+  id=cleanId(id); if(!id)return;
+  stopAll(); mode="cloud"; devId=id; brokerUrl=url||DEFAULT_BROKER; devOnline=null; resetTrack(); lastMsgAt=0; msgTimes=[];
+  brokerState="connecting"; brokerErr=""; activeBroker=""; tryingUrl=brokerUrl;
+  store("pc_dev",id); store("pc_broker",url&&url!==DEFAULT_BROKER?url:null);
+  $("devIdInp").value=id; $("brokerInp").value=url&&url!==DEFAULT_BROKER?url:"";
+  render();
+  var gen=++cloudGen;
+  loadMqtt().then(function(mqtt){
+    if(gen!==cloudGen)return;
+    brokerList=brokerCandidates(brokerUrl); brokerIdx=0;
+    tryBroker(mqtt,id,gen);
+  }).catch(function(){
+    if(gen!==cloudGen)return;
+    brokerState="error"; brokerErr=t("eLib"); renderConn();
+  });
+}
+function tryBroker(mqtt,id,gen){
+  if(gen!==cloudGen)return;
+  var url=brokerList[brokerIdx%brokerList.length], base=TOPIC_ROOT+id, connected=false, done=false, c;
+  if(client){try{client.removeAllListeners();client.end(true)}catch(e){}client=null}
+  brokerState="connecting"; tryingUrl=url; renderConn();
+
+  function next(reason){                       // فشل هذا الخادم -> جرّب اللي بعده
+    if(done||gen!==cloudGen)return; done=true;
+    clearTimeout(tryTimer);
+    if(reason)brokerErr=reason;
+    try{c&&c.removeAllListeners();c&&c.end(true)}catch(e){}
+    if(client===c)client=null;
+    brokerIdx++;
+    var fullCycle=brokerIdx%brokerList.length===0;
+    brokerState=fullCycle?"error":"connecting";
+    if(!fullCycle)tryingUrl=brokerList[brokerIdx%brokerList.length];
+    renderConn();
+    tryTimer=setTimeout(function(){tryBroker(mqtt,id,gen)},fullCycle?5000:100);
+  }
+
+  try{
+    c=mqtt.connect(url,{clientId:"pc-web-"+Math.random().toString(16).slice(2,10),clean:true,
+      reconnectPeriod:0,connectTimeout:CONNECT_WAIT_MS,keepalive:30});
+  }catch(e){next(t("eErr",{u:url,m:e&&e.message||"?"}));return}
+  client=c;
+
+  // ما اتصل خلال 3 ثواني -> البديل
+  tryTimer=setTimeout(function(){if(!connected)next(t("eTimeout",{u:url}))},CONNECT_WAIT_MS);
+
+  c.on("connect",function(){
+    if(gen!==cloudGen)return;
+    connected=true; done=true; clearTimeout(tryTimer);
+    brokerState="connected"; activeBroker=url; brokerErr="";
+    c.subscribe([base+"/status",base+"/online"],{qos:0},function(err){
+      if(err){brokerErr=t("eSub",{m:err.message||"?"});renderConn()}
+    });
+    renderConn();
+  });
+  c.on("error",function(err){
+    if(gen!==cloudGen)return;
+    var m=t("eErr",{u:url,m:(err&&err.message)||"?"});
+    if(!connected)next(m);else{brokerErr=m;renderConn()}
+  });
+  c.on("close",function(){
+    if(gen!==cloudGen)return;
+    if(!connected){next(brokerErr&&brokerErr.indexOf(url)>=0?brokerErr:t("eRefused",{u:url}));return}
+    // كان متصل وانقطع -> نعيد الاتصال بنفس الخادم بعد 3 ثواني
+    connected=false; brokerState="closed"; activeBroker=""; brokerErr=t("eClosed",{u:url}); renderConn();
+    clearTimeout(tryTimer);
+    tryTimer=setTimeout(function(){done=false;tryBroker(mqtt,id,gen)},3000);
+  });
+  c.on("message",function(topic,payload){
+    if(gen!==cloudGen)return;
+    var txt=payload.toString();
+    if(topic===base+"/online"){devOnline=txt.trim()==="1";render();return}
+    if(topic===base+"/status"){try{var j=JSON.parse(txt);if(j&&typeof j==="object"){ingest(j);gotMsg();if(devOnline===null)devOnline=true;render()}}catch(e){}}
+  });
+}
+
+/* =================== المصدر 3: وضع تجريبي =================== */
+// مرضى وهميون للتجربة فقط (غرفة -> مريض)
+var DEMO_P=[
+  {room:"101",ar:"Patient1",en:"Patient1",kind:"over"},
+  {room:"102",ar:"Patient2",en:"Patient2",kind:"due"},
+  {room:"103",ar:"Patient3",en:"Patient3",kind:"mover"},
+  {room:"104",ar:"Patient4",en:"Patient4",kind:"ok"},
+  {room:"105",ar:"Patient5",en:"Patient5",kind:"ok2"}];
+function startDemo(){
+  stopAll(); resetTrack(); mode="demo";
+  var cfg={stillSec:120,stableSec:120,minPct:3,medPct:40,highPct:75};
+  var ids=["sacrum","shoulder_l","shoulder_r","heel_l","heel_r","elbow_l","elbow_r","head"];
+  var POSE={
+    back:{sacrum:84,shoulder_l:56,shoulder_r:50,heel_l:47,heel_r:44,elbow_l:24,elbow_r:20,head:31},
+    side:{sacrum:26,shoulder_l:8,shoulder_r:52,heel_l:9,heel_r:34,elbow_l:5,elbow_r:28,head:18},
+    light:{sacrum:36,shoulder_l:30,shoulder_r:27,heel_l:22,heel_r:20,elbow_l:12,elbow_r:10,head:19}};
+  var OFF={over:150,due:92,mover:20,ok:25,ok2:55}, EVERY={ok:45,ok2:70}, t0=Date.now();
+  function up(){return Math.floor((Date.now()-t0)/1000)+600}
+  var pts=DEMO_P.map(function(p){var now=Date.now();
+    return {p:p,lastMove:now-OFF[p.kind]*1000,lastP:now-(OFF[p.kind]-4)*1000,alert:false,muted:false,cnt:p.kind==="over"?1:0,seq:2,
+      evs:p.kind==="over"?[{id:2,t:420,type:3},{id:1,t:300,type:1}]:[],pose:p.kind==="ok"||p.kind==="ok2"?"light":"back",
+      phaseAt:now-(p.kind==="mover"?22000:0),moving:false,from:null,mix:1}});
+  function step(d,now){
+    var k=d.p.kind;
+    if(k==="mover"){   // يتقلب كل 30 ثانية: ظهر <-> جنب (الضغط يخف لما ينقلب على جنبه)
+      if(!d.moving&&now-d.phaseAt>=30000){d.moving=true;d.moveStart=now;d.from=d.pose;d.pose=d.pose==="back"?"side":"back";d.mix=0}
+      if(d.moving){d.lastMove=now;d.lastP=now;d.mix=Math.min(1,(now-d.moveStart)/4000);if(d.mix>=1){d.moving=false;d.phaseAt=now}}
+    } else if(EVERY[k]){ // حركة خفيفة كل فترة (يبقى أخضر)
+      if(!d.moving&&now-d.lastMove>=EVERY[k]*1000){d.moving=true;d.moveStart=now}
+      if(d.moving){d.lastMove=now;if(now-d.moveStart>=2000)d.moving=false}
+    }
+  }
+  function zonesOf(d,now){
+    var a=POSE[d.pose], f=d.from&&d.mix<1?POSE[d.from]:null;
+    return ids.map(function(id,i){var v=(f?f[id]+(a[id]-f[id])*d.mix:a[id])+Math.sin(now/3000+i)*1.5;v=Math.max(0,v);
+      return {id:id,pct:Math.round(v*10)/10,lvl:v<cfg.minPct?0:v<cfg.medPct?1:v<cfg.highPct?2:3}})}
+  function st(i){var d=pts[i],now=Date.now();step(d,now);
+    var still=(now-d.lastMove)/1000,stable=(now-d.lastP)/1000,c=still>=cfg.stillSec&&stable>=cfg.stableSec;
+    if(c&&!d.alert){d.alert=true;d.muted=false;d.cnt++;d.evs.unshift({id:++d.seq,t:up(),type:1})}
+    if(!c&&d.alert){d.alert=false;d.evs.unshift({id:++d.seq,t:up(),type:2})}
+    return {v:1,id:"demo-"+d.p.room,name:lang==="ar"?d.p.ar:d.p.en,room:d.p.room,uptime:up(),still:Math.floor(still),stable:Math.floor(stable),
+      stillReq:cfg.stillSec,stableReq:cfg.stableSec,moving:d.moving,motionOk:true,loaded:true,alert:d.alert,muted:d.muted,alerts:d.cnt,
+      zones:zonesOf(d,now),events:d.evs.slice(0,20),th:{min:cfg.minPct,med:cfg.medPct,high:cfg.highPct}}}
+  demo={
+    all:function(){return pts.map(function(_,i){return st(i)})},
+    cmd:function(c){var d=pts[demoSel];if(!d)return;if(c==="ack")d.muted=true;
+      if(c==="reset"){d.lastMove=d.lastP=Date.now();d.evs.unshift({id:++d.seq,t:up(),type:3})}}
+  };
+  pollTimer=setInterval(tick,1000); tick();
+}
+var demoTop={};   // لإشعار المرضى الثانيين (غير المعروض) لما يتحركون ويخف الضغط
+function tick(){if(mode!=="demo"||!demo)return;
+  var all=demo.all();
+  all.forEach(function(s,i){var tz=topZone(s),p=tz?+tz.pct:0,k=s.room,r=demoTop[k];
+    if(s.moving){if(!r||!r.mv)demoTop[k]=r={mv:true,max:p};else r.max=Math.max(r.max,p)}
+    else if(r&&r.mv){r.mv=false;if(i!==demoSel&&r.max-p>=GOOD_DROP)onGoodReposition(Math.round(r.max),Math.round(p),s.name)}
+  });
+  ingest(all[demoSel]||all[0]);gotMsg();render();renderStrip(all)}
+function renderStrip(all){
+  var el=$("pStrip"); if(mode!=="demo"){el.hidden=true;return}
+  el.hidden=false;
+  var CH={ok:"chOk",due:"chDue",over:"chOver",motion:"chMotion",empty:"chEmpty",wait:"chEmpty"};
+  el.innerHTML='<div class="ps-h"><h2>'+esc(t("demoWard"))+'</h2><span class="cnt num">'+all.length+'</span><small>'+esc(t("wardHint"))+'</small></div>'+
+   '<div class="ps-row" role="list">'+all.map(function(s,i){
+    var st=calc(s).st; if(s.moving&&st!=="over")st="motion";
+    var tz=topZone(s), p=tz?Math.round(+tz.pct):0, on=i===demoSel;
+    return '<button type="button" role="listitem" class="pchip st-'+st+(on?' on':'')+'" data-pi="'+i+'" aria-pressed="'+on+'" aria-label="'+esc(t("roomT",{r:s.room})+" · "+s.name+" · "+t(CH[st]))+'">'+
+      '<span class="pc-top"><span class="pc-room"><small>'+esc(t("roomS"))+'</small><span class="num">'+esc(s.room)+'</span></span>'+
+        '<span class="pc-st"><i></i><span>'+esc(t(CH[st]))+'</span></span></span>'+
+      '<span class="pc-name">'+esc(s.name)+'</span>'+
+      '<span class="pc-stats"><span><small>'+esc(t("chP"))+'</small><b class="num lv'+(tz?tz.lvl:0)+'"><bdi dir="ltr">'+p+'%</bdi></b></span>'+
+        '<span><small>'+esc(t("chT"))+'</small><b class="num"><bdi dir="ltr">'+mmss(s.still)+'</bdi></b></span></span></button>'}).join("")+'</div>';
+}
+$("pStrip").addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-pi]");if(!b)return;e.stopPropagation();
+  var i=+b.dataset.pi;if(i===demoSel)return;demoSel=i;stopAlertFx();prevAlert=false;resetTrack();tick()});
+function exitDemo(){stopAll();resetTrack();mode=null;render();showModal(true)}
+function stopAll(){clearInterval(pollTimer);pollTimer=null;stopCloud();demo=null;mode=null;stopAlertFx();prevAlert=false;var ps=$("pStrip");if(ps){ps.hidden=true;ps.innerHTML=""}}
+
+/* =================== الإعدادات =================== */
+var F=$("form");
+function fillForm(s){F.name.value=s.name||"";F.room.value=s.room||"";
+  F.stillMin.value=+(s.stillSec/60).toFixed(2);F.stableMin.value=+(s.stableSec/60).toFixed(2);
+  F.minPct.value=s.minPct;F.medPct.value=s.medPct;F.highPct.value=s.highPct;F.deltaPct.value=s.deltaPct;F.buzzer.checked=!!s.buzzer}
+function loadSettings(){if(mode==="local")fetchJ("/api/settings").then(fillForm).catch(function(){})}
+$("saveBtn").onclick=function(){
+  var m=$("formMsg");
+  if(!F.reportValidity())return;
+  if(!(+F.minPct.value<+F.medPct.value&&+F.medPct.value<+F.highPct.value)){m.textContent=t("saveErr");m.className="msg c-over";return}
+  var data={name:F.name.value,room:F.room.value,stillSec:Math.round(F.stillMin.value*60),stableSec:Math.round(F.stableMin.value*60),
+    minPct:F.minPct.value,medPct:F.medPct.value,highPct:F.highPct.value,deltaPct:F.deltaPct.value,buzzer:F.buzzer.checked?1:0};
+  post("/api/settings",data).then(function(){m.textContent=t("saved");m.className="msg c-ok";pollLocal();setTimeout(function(){m.textContent=""},3000)})
+   .catch(function(e){m.textContent=e&&e.err?t("saveErr"):t("netErr");m.className="msg c-over"})};
+
+/* =================== نافذة الاتصال =================== */
+function showModal(on){$("connectModal").hidden=!on;if(on){$("mDev").value=devId||store("pc_dev")||"";$("mBroker").value=store("pc_broker")||"";setTimeout(function(){$("mDev").focus()},50)}}
+$("mConnect").onclick=function(){var id=cleanId($("mDev").value);if(!id){$("mDev").focus();return}showModal(false);startCloud(id,$("mBroker").value.trim()||DEFAULT_BROKER)};
+$("mDemo").onclick=function(){showModal(false);startDemo()};
+$("connectModal").addEventListener("keydown",function(e){if(e.key==="Escape"&&mode)showModal(false)});
+$("connectBtn").onclick=function(){var id=cleanId($("devIdInp").value);if(!id){$("devIdInp").focus();return}startCloud(id,$("brokerInp").value.trim()||DEFAULT_BROKER);view="dash";applyView()};
+$("disconnectBtn").onclick=function(){stopAll();store("pc_dev",null);resetTrack();devId="";render();showModal(true)};
+$("demoBtn2").onclick=function(){startDemo();view="dash";applyView()};
+
+/* =================== التشغيل =================== */
+applyLang();
+setInterval(function(){renderConn();if(S&&mode!=="demo"&&mode!=="local")render()},1000);
+window.addEventListener("resize",function(){if(selZone)render()});
+(function boot(){
+  if(qs("demo")!==null)return startDemo();
+  var qd=cleanId(qs("device")), qb=qs("broker");
+  function cloudOrPrompt(){
+    var id=qd||store("pc_dev");
+    if(id)startCloud(id,qb||store("pc_broker")||DEFAULT_BROKER);
+    else showModal(true);
+  }
+  if(/^https?:$/.test(location.protocol)&&!qd){
+    fetchJ("/api/status",null,2500).then(function(j){if(j&&Array.isArray(j.zones))startLocal(j);else cloudOrPrompt()}).catch(cloudOrPrompt);
+  } else cloudOrPrompt();
+})();
+})();
+</script>
+</body>
+</html>
